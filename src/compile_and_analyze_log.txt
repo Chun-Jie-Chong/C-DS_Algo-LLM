@@ -1,0 +1,49 @@
+Analyzing and compiling avl_tree.c to avl_tree.o
+Compilation and analysis of avl_tree.c succeeded
+Analyzing and compiling bfs.c to bfs.o
+Compilation and analysis of bfs.c succeeded
+Analyzing and compiling binary_search_tree.c to binary_search_tree.o
+binary_search_tree.c:124:5: warning: Potential leak of memory pointed to by 'root' [unix.Malloc]
+    struct Node* findNode = find(root, 40);
+    ^~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+Compilation and analysis of binary_search_tree.c succeeded
+Analyzing and compiling bubble_sort.c to bubble_sort.o
+Compilation and analysis of bubble_sort.c succeeded
+Analyzing and compiling dfs.c to dfs.o
+Compilation and analysis of dfs.c succeeded
+Analyzing and compiling doubly_linkedlist.c to doubly_linkedlist.o
+doubly_linkedlist.c:90:22: warning: Use of memory after it is freed [unix.Malloc]
+        Node* next = temp->next;
+                     ^~~~~~~~~~
+1 warning generated.
+Compilation and analysis of doubly_linkedlist.c succeeded
+Analyzing and compiling graph.c to graph.o
+Compilation and analysis of graph.c succeeded
+Analyzing and compiling hash_map.c to hash_map.o
+Compilation and analysis of hash_map.c succeeded
+Analyzing and compiling hash_set.c to hash_set.o
+Compilation and analysis of hash_set.c succeeded
+Analyzing and compiling hash_table.c to hash_table.o
+Compilation and analysis of hash_table.c succeeded
+Analyzing and compiling merge_sort.c to merge_sort.o
+Compilation and analysis of merge_sort.c succeeded
+Analyzing and compiling queue.c to queue.o
+Compilation and analysis of queue.c succeeded
+Analyzing and compiling red_black_tree.c to red_black_tree.o
+red_black_tree.c:159:18: warning: Access to field 'parent' results in a dereference of a null pointer (loaded from variable 'x') [core.NullDereference]
+        if (x == x->parent->left) {
+                 ^~~~~~~~~
+red_black_tree.c:167:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
+            if ((w->left == NULL || w->left->color == BLACK) && 
+                 ^~~~~~~
+red_black_tree.c:193:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
+            if ((w->left == NULL || w->left->color == BLACK) && 
+                 ^~~~~~~
+3 warnings generated.
+Compilation and analysis of red_black_tree.c succeeded
+Analyzing and compiling singly_linkedlist.c to singly_linkedlist.o
+Compilation and analysis of singly_linkedlist.c succeeded
+Analyzing and compiling stack.c to stack.o
+Compilation and analysis of stack.c succeeded
+Compilation and static analysis completed.

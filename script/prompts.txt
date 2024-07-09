@@ -1,0 +1,89 @@
+Title: avl_tree. 
+Content:
+Implement an AVL tree data structure in C. Make sure to implement insert, delete, findNode, printPreOrder, printInOrder, printPostOrder functions.
+
+--------------------------------------------------------------------------------
+
+Title: bfs. 
+Content:
+Implement a Breadth First Search algorithm in C. Utilize queue for implementation.
+
+--------------------------------------------------------------------------------
+
+Title: binary_search_tree. 
+Content:
+Implement a Binary search tree data structure in C. Make sure to implement insert, delete, find, inOrder functions.
+
+--------------------------------------------------------------------------------
+
+Title: bubble_sort. 
+Content:
+Implement a bubble sort algorithm in C.
+
+--------------------------------------------------------------------------------
+
+Title: dfs. 
+Content:
+Implement a Depth First Search algorithm in C. Implement it by using recursive function.
+
+--------------------------------------------------------------------------------
+
+Title: doubly_linkedlist. 
+Content:
+Implement a Doubly Linked List data structure in C. Make sure to implement insert, delete, search, print functions.
+
+--------------------------------------------------------------------------------
+
+Title: graph. 
+Content:
+Implement a Graph data structure in C. Make sure to implement insertEdge, removeEdge, showGraph, freeGraph functions.
+
+--------------------------------------------------------------------------------
+
+Title: hash_map. 
+Content:
+Implement a HashMap data structure in C from scratch. Includes all necessary functions for a HashMap.
+
+--------------------------------------------------------------------------------
+
+Title: hash_set. 
+Content:
+Implement a HashSet data structure in C from scratch. Includes all necessary functions for a HashSet.
+
+--------------------------------------------------------------------------------
+
+Title: hash_table. 
+Content:
+Implement a HashTable data structure in C from scratch. Includes all necessary functions for a HashTable.
+
+--------------------------------------------------------------------------------
+
+Title: merge_sort. 
+Content:
+Implement a merge sort algorithm in C.
+
+--------------------------------------------------------------------------------
+
+Title: queue. 
+Content:
+Implement a Queue data structure in C. Make sure to implement enqueue, dequeue, peek, size, isEmpty functions.
+
+--------------------------------------------------------------------------------
+
+Title: red_black_tree. 
+Content:
+Implement a Red Black Tree data structure in C. Make sure to implement insertNode, deleteNode, and printInorder functions.
+
+--------------------------------------------------------------------------------
+
+Title: singly_linkedlist. 
+Content:
+Implement a Singly Linked List data structure in C. Make sure to implement insert, deletion, and viewList (prints out the list values) functions.
+
+--------------------------------------------------------------------------------
+
+Title: stack. 
+Content:
+Implement a Stack data structure in C. Make sure to implement push, pop, size, isEmpty, top functions.
+
+--------------------------------------------------------------------------------
