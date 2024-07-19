@@ -66,29 +66,29 @@ void destroyStack(Stack *stack) {
     free(stack);
 }
 
-int main() {
-    Stack *stack = createStack(MAX_CAPACITY);
+// int main() {
+//     Stack *stack = createStack(MAX_CAPACITY);
 
-    push(stack, 10);
-    push(stack, 20);
-    push(stack, 30);
+//     push(stack, 10);
+//     push(stack, 20);
+//     push(stack, 30);
 
-    printf("Top element is %d\n", top(stack));
-    printf("Stack size is %d\n", size(stack));
+//     printf("Top element is %d\n", top(stack));
+//     printf("Stack size is %d\n", size(stack));
 
-    printf("Popped element is %d\n", pop(stack));
-    printf("Top element after pop is %d\n", top(stack));
-    printf("Stack size after pop is %d\n", size(stack));
+//     printf("Popped element is %d\n", pop(stack));
+//     printf("Top element after pop is %d\n", top(stack));
+//     printf("Stack size after pop is %d\n", size(stack));
 
-    if (isEmpty(stack)) {
-        printf("Stack is empty\n");
-    } else {
-        printf("Stack is not empty\n");
-    }
+//     if (isEmpty(stack)) {
+//         printf("Stack is empty\n");
+//     } else {
+//         printf("Stack is not empty\n");
+//     }
 
-    destroyStack(stack);
-    return 0;
-}
+//     destroyStack(stack);
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* This code demonstrates the implementation of a stack data structure in C with `push`, `pop`, `size`, `isEmpty`, and `top` operations. The `main` function tests these operations on a stack. Make sure to include proper error handling and check for stack overflow and underflow conditions as needed. */

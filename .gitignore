@@ -2,3 +2,7 @@ cov-int/
 VERSION
 VERSION.xml
 *.tgz
+.DS_Store
+.vscode/
+build/
+test_results.txt

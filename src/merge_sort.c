@@ -67,19 +67,19 @@ void printArray(int arr[], int size) {
 }
 
 // Driver program to test above functions
-int main() {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
+// int main() {
+//     int arr[] = {12, 11, 13, 5, 6, 7};
+//     int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Given array is \n");
-    printArray(arr, arr_size);
+//     printf("Given array is \n");
+//     printArray(arr, arr_size);
 
-    mergeSort(arr, 0, arr_size - 1);
+//     mergeSort(arr, 0, arr_size - 1);
 
-    printf("Sorted array is \n");
-    printArray(arr, arr_size);
-    return 0;
-}
+//     printf("Sorted array is \n");
+//     printArray(arr, arr_size);
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* **Explanation:** */
