@@ -220,32 +220,32 @@ void printPostOrder(Node* root) {
 }
 
 // Main function to test the AVL tree
-int main() {
-    Node* root = NULL;
+// int main() {
+//     Node* root = NULL;
 
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
-    root = insert(root, 50);
-    root = insert(root, 25);
+//     root = insert(root, 10);
+//     root = insert(root, 20);
+//     root = insert(root, 30);
+//     root = insert(root, 40);
+//     root = insert(root, 50);
+//     root = insert(root, 25);
 
-    printf("Preorder traversal of the constructed AVL tree is:\n");
-    printPreOrder(root);
+//     printf("Preorder traversal of the constructed AVL tree is:\n");
+//     printPreOrder(root);
 
-    printf("\nInorder traversal of the constructed AVL tree is:\n");
-    printInOrder(root);
+//     printf("\nInorder traversal of the constructed AVL tree is:\n");
+//     printInOrder(root);
 
-    printf("\nPostorder traversal of the constructed AVL tree is:\n");
-    printPostOrder(root);
+//     printf("\nPostorder traversal of the constructed AVL tree is:\n");
+//     printPostOrder(root);
 
-    root = deleteNode(root, 10);
+//     root = deleteNode(root, 10);
 
-    printf("\nPreorder traversal after deletion of 10:\n");
-    printPreOrder(root);
+//     printf("\nPreorder traversal after deletion of 10:\n");
+//     printPreOrder(root);
 
-    return 0;
-}
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* This code provides a basic implementation of an AVL tree with the required operations. The `main` function demonstrates how to use the `insert`, `delete`, and traversal functions. Adjust the `main` function as needed for different test cases or to fit specific requirements. */
