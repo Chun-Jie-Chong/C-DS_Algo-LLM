@@ -1,103 +1,126 @@
-/* Certainly! Below is a C implementation of the Breadth-First Search (BFS) algorithm using a queue. We'll define the necessary headers, the queue data structure, and the BFS function itself. */
-/*  */
-/* ```c */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "graph.c"
 
-// Queue structure
+// Define a queue node structure
+typedef struct QueueNode {
+    int data;
+    struct QueueNode *next;
+} QueueNode;
+
+// Define a queue structure
 typedef struct Queue {
-    int *items;
-    int front;
-    int rear;
-    int max_size;
+    QueueNode *front;
+    QueueNode *rear;
 } Queue;
 
-// Function to create a queue
-Queue* createQueue(int max_size) {
-    Queue *q = (Queue*)malloc(sizeof(Queue));
-    q->items = (int*)malloc(sizeof(int) * max_size);
-    q->front = -1;
-    q->rear = -1;
-    q->max_size = max_size;
+// Create a new empty queue
+Queue *createQueue() {
+    Queue *q = malloc(sizeof(Queue));
+    q->front = NULL;
+    q->rear = NULL;
     return q;
 }
 
-// Function to check if the queue is empty
+// Check if the queue is empty
 bool isEmpty(Queue *q) {
-    return q->front == -1;
+    return q->front == NULL;
 }
 
-// Function to enqueue an element
+// Enqueue an element
 void enqueue(Queue *q, int value) {
-    if (q->rear == q->max_size - 1) {
-        printf("Queue is full\n");
-        return;
+    QueueNode *newNode = malloc(sizeof(QueueNode));
+    newNode->data = value;
+    newNode->next = NULL;
+    if (q->rear != NULL) {
+        q->rear->next = newNode;
     }
-    if (isEmpty(q)) {
-        q->front = 0;
+    q->rear = newNode;
+    if (q->front == NULL) {
+        q->front = newNode;
     }
-    q->rear++;
-    q->items[q->rear] = value;
 }
 
-// Function to dequeue an element
+// Dequeue an element
 int dequeue(Queue *q) {
     if (isEmpty(q)) {
-        printf("Queue is empty\n");
-        exit(1);
+        fprintf(stderr, "Queue underflow\n");
+        exit(EXIT_FAILURE);
     }
-    int item = q->items[q->front];
-    q->front++;
-    if (q->front > q->rear) {
-        q->front = q->rear = -1; // Reset queue
+    int value = q->front->data;
+    QueueNode *temp = q->front;
+    q->front = q->front->next;
+    if (q->front == NULL) {
+        q->rear = NULL;
     }
-    return item;
+    free(temp);
+    return value;
 }
 
-// BFS function
-void BFS(int graph[][5], int startVertex, int numVertices) {
-    bool visited[numVertices];
-    for (int i = 0; i < numVertices; i++) {
-        visited[i] = false;
+// Free the queue
+void freeQueue(Queue *q) {
+    while (!isEmpty(q)) {
+        dequeue(q);
+    }
+    free(q);
+}
+
+bool bfs(Graph g, int nV, Vertex src, Vertex dest) {
+    if (src == dest) {
+        return true;
     }
 
-    Queue *q = createQueue(numVertices);
+    bool *visited = calloc(nV, sizeof(bool));
+    Queue *q = createQueue();
 
-    visited[startVertex] = true;
-    enqueue(q, startVertex);
+    visited[src] = true;
+    enqueue(q, src);
 
     while (!isEmpty(q)) {
-        int currentVertex = dequeue(q);
-        printf("Visited %d\n", currentVertex);
+        Vertex v = dequeue(q);
 
-        // Checking neighbors
-        for (int i = 0; i < numVertices; i++) {
-            if (graph[currentVertex][i] == 1 && !visited[i]) {
-                visited[i] = true;
-                enqueue(q, i);
+        for (int w = 0; w < nV; w++) {
+            if (g->edges[v][w] != 0 && !visited[w]) {
+                if (w == dest) {
+                    free(visited);
+                    freeQueue(q);
+                    return true;
+                }
+                visited[w] = true;
+                enqueue(q, w);
             }
         }
     }
+
+    free(visited);
+    freeQueue(q);
+    return false;
 }
 
-int main() {
-    // Example graph as adjacency matrix (5 vertices)
-    int graph[5][5] = {
-        {0, 1, 1, 0, 0},
-        {1, 0, 1, 1, 0},
-        {1, 1, 0, 1, 0},
-        {0, 1, 1, 0, 1},
-        {0, 0, 0, 1, 0}
-    };
+// int main() {
+//     int V = 5;
+//     Graph g = newGraph(V);
 
-    // Starting the BFS from vertex 0
-    BFS(graph, 0, 5);
+//     Edge e1 = {0, 1};
+//     Edge e2 = {0, 2};
+//     Edge e3 = {1, 2};
+//     Edge e4 = {1, 3};
+//     Edge e5 = {2, 4};
 
-    return 0;
-}
-/* ``` */
-/*  */
-/* This code defines a `Queue` structure and implements the necessary queue operations: `enqueue`, `dequeue`, and `isEmpty`. The `BFS` function uses this queue to explore the graph starting from the provided start vertex. */
-/*  */
-/* The graph is represented as an adjacency matrix for simplicity. You can modify the size and content of the `graph` matrix and `numVertices` variable to work with different graphs. */
+//     insertEdge(g, e1);
+//     insertEdge(g, e2);
+//     insertEdge(g, e3);
+//     insertEdge(g, e4);
+//     insertEdge(g, e5);
+
+//     printf("Graph adjacency matrix:\n");
+//     showGraph(g);
+
+//     printf("\nBFS starting from vertex 0:\n");
+//     bfs(g, 0);
+
+//     freeGraph(g);
+
+//     return 0;
+// }

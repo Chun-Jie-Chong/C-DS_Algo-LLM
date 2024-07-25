@@ -1,147 +1,101 @@
-/* Sure, let's implement a simple undirected graph data structure in C. We'll use an adjacency list representation for the graph. Each vertex will have a list of adjacent vertices. */
-/*  */
-/* First, include the necessary headers for the code: */
-/*  */
-/* ```c */
 #include <stdio.h>
 #include <stdlib.h>
-/* ``` */
-/*  */
-/* Define the structures for our graph: */
-/*  */
-/* ```c */
-typedef struct AdjListNode {
-    int dest;
-    struct AdjListNode* next;
-} AdjListNode;
+#include <stdbool.h>
 
-typedef struct AdjList {
-    AdjListNode* head;
-} AdjList;
+typedef struct GraphRep {
+    int **edges;  // adjacency matrix
+    int nV;       // #vertices
+    int nE;       // #edges
+} GraphRep;
 
-typedef struct Graph {
-    int V;
-    AdjList* array;
-} Graph;
-/* ``` */
-/*  */
-/* Now, we can implement functions to create a graph, add an edge, remove an edge, print the graph, and free the graph. */
-/*  */
-/* ```c */
-// Function to create a new adjacency list node
-AdjListNode* newAdjListNode(int dest) {
-    AdjListNode* newNode = (AdjListNode*)malloc(sizeof(AdjListNode));
-    newNode->dest = dest;
-    newNode->next = NULL;
-    return newNode;
-}
+typedef GraphRep *Graph;
+typedef struct Edge {
+    int v;
+    int w;
+} Edge;
+typedef int Vertex;
 
-// Function to create a graph of V vertices
-Graph* createGraph(int V) {
-    Graph* graph = (Graph*)malloc(sizeof(Graph));
-    graph->V = V;
-
-    // Create an array of adjacency lists. Size of array is V
-    graph->array = (AdjList*)malloc(V * sizeof(AdjList));
-
-    // Initialize each adjacency list as empty by making head as NULL
-    for (int i = 0; i < V; ++i)
-        graph->array[i].head = NULL;
-
-    return graph;
-}
-
-// Function to add an edge to an undirected graph
-void insertEdge(Graph* graph, int src, int dest) {
-    // Add an edge from src to dest. A new node is added to the adjacency list of src.
-    AdjListNode* newNode = newAdjListNode(dest);
-    newNode->next = graph->array[src].head;
-    graph->array[src].head = newNode;
-
-    // Since graph is undirected, add an edge from dest to src also
-    newNode = newAdjListNode(src);
-    newNode->next = graph->array[dest].head;
-    graph->array[dest].head = newNode;
-}
-
-// Function to remove an edge from the graph
-void removeEdge(Graph* graph, int src, int dest) {
-    AdjListNode** current = &graph->array[src].head;
-    
-    while (*current != NULL) {
-        if ((*current)->dest == dest) {
-            AdjListNode* temp = *current;
-            *current = (*current)->next;
-            free(temp);
-            break;
-        }
-        current = &(*current)->next;
+// Create a new graph with V vertices
+Graph newGraph(int V) {
+    Graph g = malloc(sizeof(GraphRep));
+    g->nV = V;
+    g->nE = 0;
+    g->edges = malloc(V * sizeof(int *));
+    for (int i = 0; i < V; i++) {
+        g->edges[i] = calloc(V, sizeof(int));
     }
+    return g;
+}
 
-    current = &graph->array[dest].head;
-
-    while (*current != NULL) {
-        if ((*current)->dest == src) {
-            AdjListNode* temp = *current;
-            *current = (*current)->next;
-            free(temp);
-            break;
-        }
-        current = &(*current)->next;
+// Insert an edge into the graph
+void insertEdge(Graph g, Edge e) {
+    int v = e.v, w = e.w;
+    if (g->edges[v][w] == 0) {
+        g->edges[v][w] = 1;
+        g->edges[w][v] = 1;  // For undirected graph
+        g->nE++;
     }
 }
 
-// Function to print the graph
-void showGraph(Graph* graph) {
-    for (int v = 0; v < graph->V; ++v) {
-        AdjListNode* pCrawl = graph->array[v].head;
-        printf("\n Adjacency list of vertex %d\n head ", v);
-        while (pCrawl) {
-            printf("-> %d", pCrawl->dest);
-            pCrawl = pCrawl->next;
+// Remove an edge from the graph
+void removeEdge(Graph g, Edge e) {
+    int v = e.v, w = e.w;
+    if (g->edges[v][w] != 0) {
+        g->edges[v][w] = 0;
+        g->edges[w][v] = 0;  // For undirected graph
+        g->nE--;
+    }
+}
+
+// Check if there is an edge between vertex v and vertex w
+bool adjacent(Graph g, Vertex v, Vertex w) {
+    return g->edges[v][w] != 0;
+}
+
+// Display the graph
+void showGraph(Graph g) {
+    for (int i = 0; i < g->nV; i++) {
+        for (int j = 0; j < g->nV; j++) {
+            printf("%d ", g->edges[i][j]);
         }
         printf("\n");
     }
 }
 
-// Function to free the graph
-void freeGraph(Graph* graph) {
-    for (int v = 0; v < graph->V; ++v) {
-        AdjListNode* pCrawl = graph->array[v].head;
-        while (pCrawl) {
-            AdjListNode* temp = pCrawl;
-            pCrawl = pCrawl->next;
-            free(temp);
-        }
+// Free the graph
+void freeGraph(Graph g) {
+    for (int i = 0; i < g->nV; i++) {
+        free(g->edges[i]);
     }
-    free(graph->array);
-    free(graph);
+    free(g->edges);
+    free(g);
 }
 
-// Main function to test the above functions
-int main() {
-    int V = 5;
-    Graph* graph = createGraph(V);
-    insertEdge(graph, 0, 1);
-    insertEdge(graph, 0, 4);
-    insertEdge(graph, 1, 2);
-    insertEdge(graph, 1, 3);
-    insertEdge(graph, 1, 4);
-    insertEdge(graph, 2, 3);
-    insertEdge(graph, 3, 4);
+// Main function for testing
+// int main() {
+//     int V = 5;
+//     Graph g = newGraph(V);
 
-    printf("Graph before removing an edge:\n");
-    showGraph(graph);
+//     Edge e1 = {0, 1};
+//     Edge e2 = {0, 2};
+//     Edge e3 = {1, 2};
+//     Edge e4 = {1, 3};
+//     Edge e5 = {2, 4};
 
-    removeEdge(graph, 1, 4);
+//     insertEdge(g, e1);
+//     insertEdge(g, e2);
+//     insertEdge(g, e3);
+//     insertEdge(g, e4);
+//     insertEdge(g, e5);
 
-    printf("\nGraph after removing an edge:\n");
-    showGraph(graph);
+//     printf("Graph adjacency matrix:\n");
+//     showGraph(g);
 
-    freeGraph(graph);
+//     removeEdge(g, e3);
+//     printf("\nGraph adjacency matrix after removing edge (1, 2):\n");
+//     showGraph(g);
 
-    return 0;
-}
-/* ``` */
-/*  */
-/* This implementation covers the creation of a graph, addition and removal of edges, visual representation, and cleanup of memory. Each function ensures the proper handling and manipulation of the graph's adjacency list. */
+//     freeGraph(g);
+
+//     return 0;
+// }

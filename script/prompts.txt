@@ -6,7 +6,9 @@ Implement an AVL tree data structure in C. Make sure to implement insert, delete
 
 Title: bfs. 
 Content:
-Implement a Breadth First Search algorithm in C. Utilize queue for implementation.
+Implement a Breadth First Search algorithm in C. Utilize queue for implementation. Make use of the previously implemented graph data structure for this Breadth First Search algorithm by including the c file.
+Below is the function declaration for the algorithm:
+bool bfs(Graph g, int nV, Vertex src, Vertex dest)
 
 --------------------------------------------------------------------------------
 
@@ -24,7 +26,9 @@ Implement a bubble sort algorithm in C.
 
 Title: dfs. 
 Content:
-Implement a Depth First Search algorithm in C. Implement it by using recursive function.
+Implement a Depth First Search algorithm in C. Implement it by using recursive function. Make use of the previously implemented graph data structure for this Depth First Search algorithm by including the c file.
+Below is the function declaration for the algorithm:
+bool dfs(Graph g, int nV, Vertex src, Vertex dest)
 
 --------------------------------------------------------------------------------
 
@@ -45,7 +49,20 @@ void print(List *list);
 
 Title: graph. 
 Content:
-Implement a Graph data structure in C. Make sure to implement insertEdge, removeEdge, showGraph, freeGraph functions.
+Implement a Graph data structure in C.
+You are given the following template for implementation.
+typedef struct GraphRep
+{
+    int **edges;  // adjacency matrix
+    int nV;       // #vertices
+    int nE;       // #edges
+} GraphRep;
+Graph newGraph(int V) {}
+void insertEdge(Graph g, Edge e) {}
+void removeEdge(Graph g, Edge e) {}
+bool adjacent(Graph g, Vertex v, Vertex w) {}
+void showGraph(Graph g) {}
+void freeGraph(Graph g) {}
 
 --------------------------------------------------------------------------------
 
