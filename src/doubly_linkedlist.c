@@ -1,144 +1,144 @@
-/* Certainly! Below is a complete implementation of a Doubly Linked List in C, including necessary headers and functions for inserting, deleting, searching, and printing elements. */
-/*  */
-/* ```c */
 #include <stdio.h>
 #include <stdlib.h>
 
-// Definition of a node in a doubly linked list
-typedef struct Node {
-    int data;
-    struct Node* prev;
-    struct Node* next;
-} Node;
+// Definition of the List structure
+typedef struct list {
+    double value;
+    struct list *next, *prev;
+} List;
 
-// Doubly Linked List structure
-typedef struct DoublyLinkedList {
-    Node* head;
-} DoublyLinkedList;
-
-// Function to create a new node
-Node* createNode(int data) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->data = data;
-    newNode->prev = NULL;
+// Function to create a new node with a given value
+List* create(double value) {
+    List *newNode = (List*)malloc(sizeof(List));
+    if (!newNode) {
+        printf("Memory allocation error\n");
+        exit(1);
+    }
+    newNode->value = value;
     newNode->next = NULL;
+    newNode->prev = NULL;
     return newNode;
 }
 
-// Function to insert a node at the end of the list
-void insert(DoublyLinkedList* list, int data) {
-    Node* newNode = createNode(data);
-    if (list->head == NULL) {
-        list->head = newNode;
-    } else {
-        Node* temp = list->head;
-        while (temp->next != NULL) {
-            temp = temp->next;
+// Function to insert a node at a specific position
+List* insert(List *list, double value, int pos) {
+    List *newNode = create(value);
+
+    if (pos == 0) {
+        newNode->next = list;
+        if (list != NULL) {
+            list->prev = newNode;
         }
-        temp->next = newNode;
-        newNode->prev = temp;
+        return newNode;
     }
-}
 
-// Function to delete a node from the list
-void delete(DoublyLinkedList* list, int data) {
-    Node* temp = list->head;
-    while (temp != NULL) {
-        if (temp->data == data) {
-            if (temp->prev != NULL) {
-                temp->prev->next = temp->next;
-            } else {
-                list->head = temp->next;
-            }
-            if (temp->next != NULL) {
-                temp->next->prev = temp->prev;
-            }
-            free(temp);
-            return;
+    List *current = list;
+    for (int i = 0; i < pos - 1; i++) {
+        if (current == NULL) {
+            printf("Position out of range\n");
+            free(newNode);
+            return list;
         }
-        temp = temp->next;
+        current = current->next;
     }
-    printf("Element %d not found.\n", data);
+
+    newNode->next = current->next;
+    newNode->prev = current;
+
+    if (current->next != NULL) {
+        current->next->prev = newNode;
+    }
+    current->next = newNode;
+
+    return list;
 }
 
-// Function to search for a node in the list
-Node* search(DoublyLinkedList* list, int data) {
-    Node* temp = list->head;
-    while (temp != NULL) {
-        if (temp->data == data) {
-            return temp;
+// Function to delete a node at a specific position
+List* delete(List *list, int pos) {
+    if (list == NULL) {
+        printf("List is empty\n");
+        return list;
+    }
+
+    List *current = list;
+
+    if (pos == 0) {
+        list = list->next;
+        if (list != NULL) {
+            list->prev = NULL;
         }
-        temp = temp->next;
-    }
-    return NULL;
-}
-
-// Function to print the list
-void print(DoublyLinkedList* list) {
-    Node* temp = list->head;
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
-}
-
-// Function to free the entire list
-void freeList(DoublyLinkedList* list) {
-    Node* temp = list->head;
-    while (temp != NULL) {
-        Node* next = temp->next;
-        free(temp);
-        temp = next;
-    }
-    list->head = NULL;
-}
-
-int main() {
-    DoublyLinkedList list;
-    list.head = NULL;
-
-    // Test insertion
-    insert(&list, 1);
-    insert(&list, 2);
-    insert(&list, 3);
-    print(&list); // Output: 1 2 3
-
-    // Test search
-    Node* result = search(&list, 2);
-    if (result != NULL) {
-        printf("Found: %d\n", result->data); // Output: Found: 2
-    } else {
-        printf("Not found.\n");
+        free(current);
+        return list;
     }
 
-    // Test deletion
-    delete(&list, 2);
-    print(&list); // Output: 1 3
+    for (int i = 0; i < pos; i++) {
+        if (current == NULL) {
+            printf("Position out of range\n");
+            return list;
+        }
+        current = current->next;
+    }
 
-    delete(&list, 4); // Output: Element 4 not found.
+    if (current->prev != NULL) {
+        current->prev->next = current->next;
+    }
 
-    // Free the list
-    freeList(&list);
-    
-    return 0;
+    if (current->next != NULL) {
+        current->next->prev = current->prev;
+    }
+
+    free(current);
+
+    return list;
 }
-/* ``` */
-/*  */
-/* Explanation of the code: */
-/*  */
-/* 1. **Node Definition**: The `Node` structure is defined with three members: `data`, `prev`, and `next` pointers. */
-/* 2. **Doubly Linked List Structure**: Defined a `DoublyLinkedList` structure that contains a pointer to the head node. */
-/* 3. **createNode**: Creates a new node with the provided data. */
-/* 4. **insert**: Inserts a new node at the end of the list. */
-/* 5. **delete**: Deletes a node with the specified data. */
-/* 6. **search**: Searches for a node with the specified data. */
-/* 7. **print**: Prints the data in the list. */
-/* 8. **freeList**: Frees the entire list to avoid memory leaks. */
-/* 9. **main**: Tests the implemented functions. */
-/*  */
-/* Ensure to compile the code using a C compiler like `gcc`. For example: */
-/* ```sh */
-/* gcc -o doubly_linked_list doubly_linked_list.c */
-/* ./doubly_linked_list */
-/* ``` */
+
+// Function to search for a value in the list
+int search(List *list, double value) {
+    int pos = 0;
+    List *current = list;
+    while (current != NULL) {
+        if (current->value == value) {
+            return pos;
+        }
+        current = current->next;
+        pos++;
+    }
+    return -1;
+}
+
+// Function to print the list values
+void print(List *list) {
+    List *current = list;
+    while (current != NULL) {
+        printf("%.2f <-> ", current->value);
+        current = current->next;
+    }
+    printf("NULL\n");
+}
+
+// Main function for testing
+// int main() {
+//     List *list = NULL;
+
+//     list = insert(list, 10.5, 0); // Insert 10.5 at position 0
+//     list = insert(list, 20.5, 1); // Insert 20.5 at position 1
+//     list = insert(list, 15.5, 1); // Insert 15.5 at position 1
+//     print(list);                  // List should be 10.5 <-> 15.5 <-> 20.5 <-> NULL
+
+//     list = delete(list, 1);       // Delete node at position 1
+//     print(list);                  // List should be 10.5 <-> 20.5 <-> NULL
+
+//     int pos = search(list, 20.5); // Search for 20.5
+//     printf("Position of 20.5: %d\n", pos); // Should print 1
+
+//     list = delete(list, 0);       // Delete node at position 0
+//     print(list);                  // List should be 20.5 <-> NULL
+
+//     list = delete(list, 0);       // Delete node at position 0
+//     print(list);                  // List should be NULL
+
+//     pos = search(list, 20.5);     // Search for 20.5
+//     printf("Position of 20.5: %d\n", pos); // Should print -1
+
+//     return 0;
+// }

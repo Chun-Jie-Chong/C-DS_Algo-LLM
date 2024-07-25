@@ -1,144 +1,92 @@
-/* Sure, I'll provide a simple implementation of a Queue data structure in C. This will include the `enqueue`, `dequeue`, `peek`, `size`, and `isEmpty` functions. The implementation will use a linked list to facilitate dynamic resizing. */
-/*  */
-/* Here is the complete code: */
-/*  */
-/* ```c */
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the Node structure
-typedef struct Node {
+// Definition of the Node structure
+struct node {
     int data;
-    struct Node* next;
-} Node;
+    struct node *next;
+};
 
-// Define the Queue structure
-typedef struct Queue {
-    Node* front;
-    Node* rear;
-    int size;
-} Queue;
+// Definition of the Queue structure
+struct queue {
+    struct node *front;
+    struct node *rear;
+    int count;
+};
 
-// Function to create a new node
-Node* createNode(int data) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    if (newNode == NULL) {
-        printf("Memory allocation failed\n");
-        exit(EXIT_FAILURE);
+// Function to create a new queue
+struct queue* create() {
+    struct queue *q = (struct queue*)malloc(sizeof(struct queue));
+    if (!q) {
+        printf("Memory allocation error\n");
+        exit(1);
     }
-    newNode->data = data;
+    q->front = q->rear = NULL;
+    q->count = 0;
+    return q;
+}
+
+// Function to enqueue an element into the queue
+void enqueue(struct queue *q, int x) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    if (!newNode) {
+        printf("Memory allocation error\n");
+        exit(1);
+    }
+    newNode->data = x;
     newNode->next = NULL;
-    return newNode;
-}
-
-// Function to create an empty queue
-Queue* createQueue() {
-    Queue* queue = (Queue*)malloc(sizeof(Queue));
-    if (queue == NULL) {
-        printf("Memory allocation failed\n");
-        exit(EXIT_FAILURE);
-    }
-    queue->front = NULL;
-    queue->rear = NULL;
-    queue->size = 0;
-    return queue;
-}
-
-// Function to check if the queue is empty
-int isEmpty(Queue* queue) {
-    return queue->front == NULL;
-}
-
-// Function to get the size of the queue
-int size(Queue* queue) {
-    return queue->size;
-}
-
-// Function to add an element to the rear of the queue (enqueue)
-void enqueue(Queue* queue, int data) {
-    Node* newNode = createNode(data);
-    if (queue->rear == NULL) {
-        queue->front = queue->rear = newNode;
+    if (q->rear == NULL) {
+        q->front = q->rear = newNode;
     } else {
-        queue->rear->next = newNode;
-        queue->rear = newNode;
+        q->rear->next = newNode;
+        q->rear = newNode;
     }
-    queue->size++;
+    q->count++;
 }
 
-// Function to remove an element from the front of the queue (dequeue)
-int dequeue(Queue* queue) {
-    if (isEmpty(queue)) {
-        printf("Queue underflow\n");
-        exit(EXIT_FAILURE);
+// Function to dequeue an element from the queue
+int dequeue(struct queue *q) {
+    if (q->front == NULL) {
+        printf("Queue is empty\n");
+        return -1;
     }
-    Node* temp = queue->front;
+    struct node *temp = q->front;
     int data = temp->data;
-    queue->front = queue->front->next;
-    if (queue->front == NULL) {
-        queue->rear = NULL;
+    q->front = q->front->next;
+    if (q->front == NULL) {
+        q->rear = NULL;
     }
     free(temp);
-    queue->size--;
+    q->count--;
     return data;
 }
 
-// Function to get the front element of the queue (peek)
-int peek(Queue* queue) {
-    if (isEmpty(queue)) {
-        printf("Queue is empty\n");
-        exit(EXIT_FAILURE);
-    }
-    return queue->front->data;
+// Function to get the size of the queue
+int size(struct queue *q) {
+    return q->count;
 }
 
-// Function to delete the queue and free memory
-void deleteQueue(Queue* queue) {
-    while (!isEmpty(queue)) {
-        dequeue(queue);
-    }
-    free(queue);
-}
+// Main function for testing
+// int main() {
+//     struct queue *q = create();
 
-// Main function for testing the queue implementation
-int main() {
-    Queue* queue = createQueue();
+//     enqueue(q, 10); // Enqueue 10
+//     enqueue(q, 20); // Enqueue 20
+//     enqueue(q, 30); // Enqueue 30
+//     viewQueue(q);   // Queue should be 10 -> 20 -> 30 -> NULL
 
-    printf("Enqueueing 1, 2, 3...\n");
-    enqueue(queue, 1);
-    enqueue(queue, 2);
-    enqueue(queue, 3);
+//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 10)
+//     viewQueue(q);   // Queue should be 20 -> 30 -> NULL
 
-    printf("Queue size: %d\n", size(queue));
-    printf("Front element: %d\n", peek(queue));
+//     printf("Queue size: %d\n", size(q));  // Size should be 2
 
-    printf("Dequeuing...\n");
-    printf("Dequeued element: %d\n", dequeue(queue));
-    printf("Queue size: %d\n", size(queue));
+//     enqueue(q, 40); // Enqueue 40
+//     viewQueue(q);   // Queue should be 20 -> 30 -> 40 -> NULL
 
-    printf("Front element: %d\n", peek(queue));
-    printf("Queue is empty: %d\n", isEmpty(queue));
+//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 20)
+//     viewQueue(q);   // Queue should be 30 -> 40 -> NULL
 
-    enqueue(queue, 4);
-    printf("Enqueueing 4...\n");
-    printf("Front element: %d\n", peek(queue));
+//     printf("Queue size: %d\n", size(q));  // Size should be 2
 
-    deleteQueue(queue);
-    printf("Queue deleted.\n");
-
-    return 0;
-}
-/* ``` */
-/*  */
-/* ### Explanation: */
-/* 1. **Node Structure**: Represents an element in the queue containing the data and a pointer to the next node. */
-/* 2. **Queue Structure**: Contains pointers to the front and rear nodes and a size counter. */
-/* 3. **createNode**: Allocates memory for a new node and initializes it with data. */
-/* 4. **createQueue**: Allocates memory for an empty queue and initializes it. */
-/* 5. **isEmpty**: Checks if the queue is empty. */
-/* 6. **size**: Returns the size of the queue. */
-/* 7. **enqueue**: Adds a new element to the rear of the queue. */
-/* 8. **dequeue**: Removes and returns the front element of the queue. */
-/* 9. **peek**: Returns the front element without removing it. */
-/* 10. **deleteQueue**: Completely frees the memory allocated for the queue. */
-/* 11. **main**: Tests the implemented queue functions. */
+//     return 0;
+// }

@@ -30,8 +30,17 @@ Implement a Depth First Search algorithm in C. Implement it by using recursive f
 
 Title: doubly_linkedlist. 
 Content:
-Implement a Doubly Linked List data structure in C. Make sure to implement insert, delete, search, print functions.
-
+Implement a Doubly Linked List data structure in C. Make sure to implement the below functions using the given function declarations:
+typedef struct list
+{
+    double value;              
+    struct list *next, *prev;   
+} List;
+List *create(double value);
+List *insert(List *list, double value, int pos);
+List *delete(List *list, int pos);
+int search(List *list, double value);
+void print(List *list);
 --------------------------------------------------------------------------------
 
 Title: graph. 
@@ -66,7 +75,7 @@ Implement a merge sort algorithm in C.
 
 Title: queue. 
 Content:
-Implement a Queue data structure in C. Make sure to implement enqueue, dequeue, peek, size, isEmpty functions.
+Implement a Queue data structure in C. Make sure to implement create(create()), enqueue (enque(int x)), dequeue (deque()), size (size())functions.
 
 --------------------------------------------------------------------------------
 
@@ -78,7 +87,7 @@ Implement a Red Black Tree data structure in C. Make sure to implement insertNod
 
 Title: singly_linkedlist. 
 Content:
-Implement a Singly Linked List data structure in C. Make sure to implement insert, deletion, and viewList (prints out the list values) functions.
+Implement a Singly Linked List data structure in C. Make sure to implement createnode (struct node *createnode())insert (int insert (int pos, int val)), deletion (int deletion(int pos)), and viewList (prints out the list values) functions.
 
 --------------------------------------------------------------------------------
 
