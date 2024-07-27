@@ -114,37 +114,37 @@
 /*  */
 /* 9. **Main function for testing:** */
 /* ```c */
-   int main() {
-       HashMap *map = createHashMap(10);
+//    int main() {
+//        HashMap *map = createHashMap(10);
 
-       insert(map, "key1", 100);
-       insert(map, "key2", 200);
-       insert(map, "key3", 300);
+//        insert(map, "key1", 100);
+//        insert(map, "key2", 200);
+//        insert(map, "key3", 300);
 
-       int value;
-       if (get(map, "key1", &value)) {
-           printf("key1: %d\n", value);
-       } else {
-           printf("key1 not found\n");
-       }
+//        int value;
+//        if (get(map, "key1", &value)) {
+//            printf("key1: %d\n", value);
+//        } else {
+//            printf("key1 not found\n");
+//        }
 
-       if (get(map, "key4", &value)) {
-           printf("key4: %d\n", value);
-       } else {
-           printf("key4 not found\n");
-       }
+//        if (get(map, "key4", &value)) {
+//            printf("key4: %d\n", value);
+//        } else {
+//            printf("key4 not found\n");
+//        }
 
-       delete(map, "key2");
+//        delete(map, "key2");
 
-       if (get(map, "key2", &value)) {
-           printf("key2: %d\n", value);
-       } else {
-           printf("key2 not found\n");
-       }
+//        if (get(map, "key2", &value)) {
+//            printf("key2: %d\n", value);
+//        } else {
+//            printf("key2 not found\n");
+//        }
 
-       freeHashMap(map);
-       return 0;
-   }
+//        freeHashMap(map);
+//        return 0;
+//    }
 /* ``` */
 /*  */
 /* This implementation includes the basic features necessary for a functional HashMap, including initialization, insertion, lookup, deletion, and cleanup. It uses separate chaining to handle collisions and assumes keys are strings that need to be dynamically copied for storage within the map. */

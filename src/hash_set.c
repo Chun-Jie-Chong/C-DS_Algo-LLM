@@ -91,36 +91,23 @@ int contains(HashSet* set, int key) {
     return 0;
 }
 
-// Free memory used by HashSet
-void freeHashSet(HashSet* set) {
-    for (int i = 0; i < TABLE_SIZE; i++) {
-        HashNode* current = set->table[i];
-        while (current != NULL) {
-            HashNode* temp = current;
-            current = current->next;
-            free(temp);
-        }
-    }
-    free(set);
-}
-
-int main() {
-    HashSet* set = createHashSet();
+// int main() {
+//     HashSet* set = createHashSet();
     
-    add(set, 5);
-    add(set, 10);
-    add(set, 15);
+//     add(set, 5);
+//     add(set, 10);
+//     add(set, 15);
 
-    printf("Contains 10: %d\n", contains(set, 10));
-    printf("Contains 100: %d\n", contains(set, 100));
+//     printf("Contains 10: %d\n", contains(set, 10));
+//     printf("Contains 100: %d\n", contains(set, 100));
 
-    removeKey(set, 10);
-    printf("Contains 10 after removal: %d\n", contains(set, 10));
+//     removeKey(set, 10);
+//     printf("Contains 10 after removal: %d\n", contains(set, 10));
 
-    freeHashSet(set);
+//     freeHashSet(set);
     
-    return 0;
-}
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* ### Explanation: */
