@@ -72,30 +72,30 @@ void freeGraph(Graph g) {
 }
 
 // Main function for testing
-// int main() {
-//     int V = 5;
-//     Graph g = newGraph(V);
+int main() {
+    int V = 5;
+    Graph g = newGraph(V);
 
-//     Edge e1 = {0, 1};
-//     Edge e2 = {0, 2};
-//     Edge e3 = {1, 2};
-//     Edge e4 = {1, 3};
-//     Edge e5 = {2, 4};
+    Edge e1 = {0, 1};
+    Edge e2 = {0, 2};
+    Edge e3 = {1, 2};
+    Edge e4 = {1, 3};
+    Edge e5 = {2, 4};
 
-//     insertEdge(g, e1);
-//     insertEdge(g, e2);
-//     insertEdge(g, e3);
-//     insertEdge(g, e4);
-//     insertEdge(g, e5);
+    insertEdge(g, e1);
+    insertEdge(g, e2);
+    insertEdge(g, e3);
+    insertEdge(g, e4);
+    insertEdge(g, e5);
 
-//     printf("Graph adjacency matrix:\n");
-//     showGraph(g);
+    printf("Graph adjacency matrix:\n");
+    showGraph(g);
 
-//     removeEdge(g, e3);
-//     printf("\nGraph adjacency matrix after removing edge (1, 2):\n");
-//     showGraph(g);
+    removeEdge(g, e3);
+    printf("\nGraph adjacency matrix after removing edge (1, 2):\n");
+    showGraph(g);
 
-//     freeGraph(g);
+    freeGraph(g);
 
-//     return 0;
-// }
+    return 0;
+}

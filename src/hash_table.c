@@ -123,24 +123,24 @@ void free_table(HashTable *hashTable) {
     free(hashTable);
 }
 
-// int main() {
-//     HashTable *hashTable = create_table();
+int main() {
+    HashTable *hashTable = create_table();
 
-//     insert(hashTable, "name", "John Doe");
-//     insert(hashTable, "occupation", "Software Developer");
-//     insert(hashTable, "language", "C");
+    insert(hashTable, "name", "John Doe");
+    insert(hashTable, "occupation", "Software Developer");
+    insert(hashTable, "language", "C");
 
-//     printf("Name: %s\n", search(hashTable, "name"));
-//     printf("Occupation: %s\n", search(hashTable, "occupation"));
-//     printf("Language: %s\n", search(hashTable, "language"));
+    printf("Name: %s\n", search(hashTable, "name"));
+    printf("Occupation: %s\n", search(hashTable, "occupation"));
+    printf("Language: %s\n", search(hashTable, "language"));
 
-//     delete(hashTable, "name");
-//     printf("Name after deletion: %s\n", search(hashTable, "name"));  // Should be NULL
+    delete(hashTable, "name");
+    printf("Name after deletion: %s\n", search(hashTable, "name"));  // Should be NULL
 
-//     free_table(hashTable);
+    free_table(hashTable);
 
-//     return 0;
-// }
+    return 0;
+}
 /* ``` */
 /*  */
 /* This code provides a simple HashTable implementation with basic functionalities such as insertion, searching, and deletion. We also perform resource cleanup to prevent memory leaks. */

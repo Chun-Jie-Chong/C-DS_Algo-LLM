@@ -89,47 +89,47 @@ void inOrder(struct Node* root) {
 }
 
 // Main function to test the BST implementation
-// int main() {
-//     struct Node* root = NULL;
-//     root = insert(root, 50);
-//     root = insert(root, 30);
-//     root = insert(root, 20);
-//     root = insert(root, 40);
-//     root = insert(root, 70);
-//     root = insert(root, 60);
-//     root = insert(root, 80);
+int main() {
+    struct Node* root = NULL;
+    root = insert(root, 50);
+    root = insert(root, 30);
+    root = insert(root, 20);
+    root = insert(root, 40);
+    root = insert(root, 70);
+    root = insert(root, 60);
+    root = insert(root, 80);
 
-//     printf("InOrder traversal of the given tree: ");
-//     inOrder(root);
-//     printf("\n");
+    printf("InOrder traversal of the given tree: ");
+    inOrder(root);
+    printf("\n");
 
-//     printf("Delete 20\n");
-//     root = deleteNode(root, 20);
-//     printf("InOrder traversal of the modified tree: ");
-//     inOrder(root);
-//     printf("\n");
+    printf("Delete 20\n");
+    root = deleteNode(root, 20);
+    printf("InOrder traversal of the modified tree: ");
+    inOrder(root);
+    printf("\n");
 
-//     printf("Delete 30\n");
-//     root = deleteNode(root, 30);
-//     printf("InOrder traversal of the modified tree: ");
-//     inOrder(root);
-//     printf("\n");
+    printf("Delete 30\n");
+    root = deleteNode(root, 30);
+    printf("InOrder traversal of the modified tree: ");
+    inOrder(root);
+    printf("\n");
 
-//     printf("Delete 50\n");
-//     root = deleteNode(root, 50);
-//     printf("InOrder traversal of the modified tree: ");
-//     inOrder(root);
-//     printf("\n");
+    printf("Delete 50\n");
+    root = deleteNode(root, 50);
+    printf("InOrder traversal of the modified tree: ");
+    inOrder(root);
+    printf("\n");
 
-//     struct Node* findNode = find(root, 40);
-//     if (findNode != NULL) {
-//         printf("Found node with data 40\n");
-//     } else {
-//         printf("Node with data 40 not found\n");
-//     }
+    struct Node* findNode = find(root, 40);
+    if (findNode != NULL) {
+        printf("Found node with data 40\n");
+    } else {
+        printf("Node with data 40 not found\n");
+    }
 
-//     return 0;
-// }
+    return 0;
+}
 /* ``` */
 /*  */
 /* Explanation: */

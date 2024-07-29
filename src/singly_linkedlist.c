@@ -84,24 +84,24 @@ void viewList(struct Node* head) {
     printf("NULL\n");
 }
 
-// int main() {
-//     struct Node* head = NULL;
+int main() {
+    struct Node* head = NULL;
     
-//     insert(&head, 0, 1);
-//     insert(&head, 1, 2);
-//     insert(&head, 2, 3);
-//     insert(&head, 1, 4);
+    insert(&head, 0, 1);
+    insert(&head, 1, 2);
+    insert(&head, 2, 3);
+    insert(&head, 1, 4);
     
-//     printf("List after insertions: ");
-//     viewList(head);
+    printf("List after insertions: ");
+    viewList(head);
     
-//     deletion(&head, 2);
-//     printf("List after deletion at position 2: ");
-//     viewList(head);
+    deletion(&head, 2);
+    printf("List after deletion at position 2: ");
+    viewList(head);
     
-//     deletion(&head, 0);
-//     printf("List after deletion at position 0: ");
-//     viewList(head);
+    deletion(&head, 0);
+    printf("List after deletion at position 0: ");
+    viewList(head);
     
-//     return 0;
-// }
+    return 0;
+}

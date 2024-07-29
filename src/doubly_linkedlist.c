@@ -117,28 +117,28 @@ void print(List *list) {
 }
 
 // Main function for testing
-// int main() {
-//     List *list = NULL;
+int main() {
+    List *list = NULL;
 
-//     list = insert(list, 10.5, 0); // Insert 10.5 at position 0
-//     list = insert(list, 20.5, 1); // Insert 20.5 at position 1
-//     list = insert(list, 15.5, 1); // Insert 15.5 at position 1
-//     print(list);                  // List should be 10.5 <-> 15.5 <-> 20.5 <-> NULL
+    list = insert(list, 10.5, 0); // Insert 10.5 at position 0
+    list = insert(list, 20.5, 1); // Insert 20.5 at position 1
+    list = insert(list, 15.5, 1); // Insert 15.5 at position 1
+    print(list);                  // List should be 10.5 <-> 15.5 <-> 20.5 <-> NULL
 
-//     list = delete(list, 1);       // Delete node at position 1
-//     print(list);                  // List should be 10.5 <-> 20.5 <-> NULL
+    list = delete(list, 1);       // Delete node at position 1
+    print(list);                  // List should be 10.5 <-> 20.5 <-> NULL
 
-//     int pos = search(list, 20.5); // Search for 20.5
-//     printf("Position of 20.5: %d\n", pos); // Should print 1
+    int pos = search(list, 20.5); // Search for 20.5
+    printf("Position of 20.5: %d\n", pos); // Should print 1
 
-//     list = delete(list, 0);       // Delete node at position 0
-//     print(list);                  // List should be 20.5 <-> NULL
+    list = delete(list, 0);       // Delete node at position 0
+    print(list);                  // List should be 20.5 <-> NULL
 
-//     list = delete(list, 0);       // Delete node at position 0
-//     print(list);                  // List should be NULL
+    list = delete(list, 0);       // Delete node at position 0
+    print(list);                  // List should be NULL
 
-//     pos = search(list, 20.5);     // Search for 20.5
-//     printf("Position of 20.5: %d\n", pos); // Should print -1
+    pos = search(list, 20.5);     // Search for 20.5
+    printf("Position of 20.5: %d\n", pos); // Should print -1
 
-//     return 0;
-// }
+    return 0;
+}

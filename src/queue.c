@@ -67,26 +67,26 @@ int size(struct queue *q) {
 }
 
 // Main function for testing
-// int main() {
-//     struct queue *q = create();
+int main() {
+    struct queue *q = create();
 
-//     enqueue(q, 10); // Enqueue 10
-//     enqueue(q, 20); // Enqueue 20
-//     enqueue(q, 30); // Enqueue 30
-//     viewQueue(q);   // Queue should be 10 -> 20 -> 30 -> NULL
+    enqueue(q, 10); // Enqueue 10
+    enqueue(q, 20); // Enqueue 20
+    enqueue(q, 30); // Enqueue 30
+    // viewQueue(q);   // Queue should be 10 -> 20 -> 30 -> NULL
 
-//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 10)
-//     viewQueue(q);   // Queue should be 20 -> 30 -> NULL
+    printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 10)
+    // viewQueue(q);   // Queue should be 20 -> 30 -> NULL
 
-//     printf("Queue size: %d\n", size(q));  // Size should be 2
+    printf("Queue size: %d\n", size(q));  // Size should be 2
 
-//     enqueue(q, 40); // Enqueue 40
-//     viewQueue(q);   // Queue should be 20 -> 30 -> 40 -> NULL
+    enqueue(q, 40); // Enqueue 40
+    // viewQueue(q);   // Queue should be 20 -> 30 -> 40 -> NULL
 
-//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 20)
-//     viewQueue(q);   // Queue should be 30 -> 40 -> NULL
+    printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 20)
+    // viewQueue(q);   // Queue should be 30 -> 40 -> NULL
 
-//     printf("Queue size: %d\n", size(q));  // Size should be 2
+    printf("Queue size: %d\n", size(q));  // Size should be 2
 
-//     return 0;
-// }
+    return 0;
+}

@@ -273,23 +273,23 @@ void printInorder(Node *root) {
 }
 
 // Main function for testing purposes
-// int main() {
-//     Node *root = NULL;
-//     insertNode(&root, 10);
-//     insertNode(&root, 20);
-//     insertNode(&root, 30);
-//     insertNode(&root, 40);
-//     insertNode(&root, 50);
+int main() {
+    Node *root = NULL;
+    insertNode(&root, 10);
+    insertNode(&root, 20);
+    insertNode(&root, 30);
+    insertNode(&root, 40);
+    insertNode(&root, 50);
     
-//     printf("Inorder Traversal: ");
-//     printInorder(root);
+    printf("Inorder Traversal: ");
+    printInorder(root);
     
-//     deleteNode(&root, 20);
-//     printf("Inorder Traversal after deletion: ");
-//     printInorder(root);
+    deleteNode(&root, 20);
+    printf("Inorder Traversal after deletion: ");
+    printInorder(root);
     
-//     return 0;
-// }
+    return 0;
+}
 /* ``` */
 /*  */
 /* This code includes the entire Red-Black Tree implementation with functions for insertion, deletion, and inorder traversal. The `main` function demonstrates how to use these functions. Note that the tree balancing is automatically managed by the `fixInsert` and `fixDelete` functions using rotations and color assignments. */
