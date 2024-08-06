@@ -7,7 +7,7 @@ target_directory="../src"
 cd "$target_directory" || { echo "Failed to change directory to $target_directory"; exit 1; }
 
 # Specify the output file
-output_file="output.txt"
+output_file="scc_chatgpt.txt"
 
 # Clear the output file if it exists
 > "$output_file"
