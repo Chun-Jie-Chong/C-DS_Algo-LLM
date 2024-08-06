@@ -1,0 +1,59 @@
+afl_banner: merge_sort
+unique_crashes: 0
+unique_hangs: 1
+---------------------------------------------
+afl_banner: bubble_sort
+unique_crashes: 0
+unique_hangs: 1
+---------------------------------------------
+afl_banner: hash_map
+unique_crashes: 15
+unique_hangs: 0
+---------------------------------------------
+afl_banner: doubly_linkedlist
+unique_crashes: 56
+unique_hangs: 0
+---------------------------------------------
+afl_banner: dfs
+unique_crashes: 33
+unique_hangs: 1
+---------------------------------------------
+afl_banner: avl_tree
+unique_crashes: 55
+unique_hangs: 0
+---------------------------------------------
+afl_banner: singly_linkedlist
+unique_crashes: 65
+unique_hangs: 0
+---------------------------------------------
+afl_banner: hash_set
+unique_crashes: 22
+unique_hangs: 0
+---------------------------------------------
+afl_banner: graph
+unique_crashes: 27
+unique_hangs: 5
+---------------------------------------------
+afl_banner: hash_table
+unique_crashes: 14
+unique_hangs: 0
+---------------------------------------------
+afl_banner: binary_search_tree
+unique_crashes: 48
+unique_hangs: 0
+---------------------------------------------
+afl_banner: bfs
+unique_crashes: 24
+unique_hangs: 1
+---------------------------------------------
+afl_banner: queue
+unique_crashes: 13
+unique_hangs: 0
+---------------------------------------------
+afl_banner: stack
+unique_crashes: 0
+unique_hangs: 3
+---------------------------------------------
+afl_banner: red_black_tree
+unique_crashes: 46
+unique_hangs: 0
