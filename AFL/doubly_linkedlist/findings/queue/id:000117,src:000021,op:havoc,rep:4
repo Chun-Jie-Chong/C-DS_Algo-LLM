@@ -1,0 +1,15 @@
+insert 5.0 0
+
+insert 3.5 0
+print
+deletinsert 7.5 1
+insert 3.5 0
+printdelete 2
+print
+search tinsert 7.5 1
+insert 3.5 0
+print7.5
+de 0
+print
+ûe 0
+print

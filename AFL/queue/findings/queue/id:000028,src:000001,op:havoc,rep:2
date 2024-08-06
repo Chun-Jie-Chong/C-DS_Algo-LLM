@@ -1,0 +1,5 @@
+enqueue A
+enqueue queue 15
+dequeue
+dequeue
+d

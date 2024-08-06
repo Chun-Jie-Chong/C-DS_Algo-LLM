@@ -3,6 +3,7 @@
 /* ```c */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Define a node structure
 struct Node {
@@ -89,44 +90,83 @@ void inOrder(struct Node* root) {
 }
 
 // Main function to test the BST implementation
-int main() {
-    struct Node* root = NULL;
-    root = insert(root, 50);
-    root = insert(root, 30);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 70);
-    root = insert(root, 60);
-    root = insert(root, 80);
+// int main() {
+//     struct Node* root = NULL;
+//     root = insert(root, 50);
+//     root = insert(root, 30);
+//     root = insert(root, 20);
+//     root = insert(root, 40);
+//     root = insert(root, 70);
+//     root = insert(root, 60);
+//     root = insert(root, 80);
 
-    printf("InOrder traversal of the given tree: ");
-    inOrder(root);
-    printf("\n");
+//     printf("InOrder traversal of the given tree: ");
+//     inOrder(root);
+//     printf("\n");
 
-    printf("Delete 20\n");
-    root = deleteNode(root, 20);
-    printf("InOrder traversal of the modified tree: ");
-    inOrder(root);
-    printf("\n");
+//     printf("Delete 20\n");
+//     root = deleteNode(root, 20);
+//     printf("InOrder traversal of the modified tree: ");
+//     inOrder(root);
+//     printf("\n");
 
-    printf("Delete 30\n");
-    root = deleteNode(root, 30);
-    printf("InOrder traversal of the modified tree: ");
-    inOrder(root);
-    printf("\n");
+//     printf("Delete 30\n");
+//     root = deleteNode(root, 30);
+//     printf("InOrder traversal of the modified tree: ");
+//     inOrder(root);
+//     printf("\n");
 
-    printf("Delete 50\n");
-    root = deleteNode(root, 50);
-    printf("InOrder traversal of the modified tree: ");
-    inOrder(root);
-    printf("\n");
+//     printf("Delete 50\n");
+//     root = deleteNode(root, 50);
+//     printf("InOrder traversal of the modified tree: ");
+//     inOrder(root);
+//     printf("\n");
 
-    struct Node* findNode = find(root, 40);
-    if (findNode != NULL) {
-        printf("Found node with data 40\n");
-    } else {
-        printf("Node with data 40 not found\n");
+//     struct Node* findNode = find(root, 40);
+//     if (findNode != NULL) {
+//         printf("Found node with data 40\n");
+//     } else {
+//         printf("Node with data 40 not found\n");
+//     }
+
+//     return 0;
+// }
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return EXIT_FAILURE;
     }
+
+    FILE *file = fopen(argv[1], "r");
+    if (file == NULL) {
+        perror("Failed to open input file");
+        return EXIT_FAILURE;
+    }
+
+    struct Node* root = NULL;
+    char command[10];
+    int data;
+
+    while (fscanf(file, "%s %d", command, &data) == 2) {
+        if (strcmp(command, "insert") == 0) {
+            root = insert(root, data);
+            printf("Inserted: %d\n", data);
+        } else if (strcmp(command, "delete") == 0) {
+            root = deleteNode(root, data);
+            printf("Deleted: %d\n", data);
+        } else if (strcmp(command, "find") == 0) {
+            struct Node* foundNode = find(root, data);
+            if (foundNode != NULL) {
+                printf("Found: %d\n", foundNode->data);
+            } else {
+                printf("Not Found: %d\n", data);
+            }
+        }
+    }
+
+    fclose(file);
+
+    // Clean up and free allocated memory if needed
 
     return 0;
 }

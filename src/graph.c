@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct GraphRep {
     int **edges;  // adjacency matrix
@@ -72,30 +73,69 @@ void freeGraph(Graph g) {
 }
 
 // Main function for testing
-int main() {
-    int V = 5;
-    Graph g = newGraph(V);
+// int main() {
+//     int V = 5;
+//     Graph g = newGraph(V);
 
-    Edge e1 = {0, 1};
-    Edge e2 = {0, 2};
-    Edge e3 = {1, 2};
-    Edge e4 = {1, 3};
-    Edge e5 = {2, 4};
+//     Edge e1 = {0, 1};
+//     Edge e2 = {0, 2};
+//     Edge e3 = {1, 2};
+//     Edge e4 = {1, 3};
+//     Edge e5 = {2, 4};
 
-    insertEdge(g, e1);
-    insertEdge(g, e2);
-    insertEdge(g, e3);
-    insertEdge(g, e4);
-    insertEdge(g, e5);
+//     insertEdge(g, e1);
+//     insertEdge(g, e2);
+//     insertEdge(g, e3);
+//     insertEdge(g, e4);
+//     insertEdge(g, e5);
 
-    printf("Graph adjacency matrix:\n");
-    showGraph(g);
+//     printf("Graph adjacency matrix:\n");
+//     showGraph(g);
 
-    removeEdge(g, e3);
-    printf("\nGraph adjacency matrix after removing edge (1, 2):\n");
-    showGraph(g);
+//     removeEdge(g, e3);
+//     printf("\nGraph adjacency matrix after removing edge (1, 2):\n");
+//     showGraph(g);
 
-    freeGraph(g);
+//     freeGraph(g);
 
-    return 0;
-}
+//     return 0;
+// }
+// AFL - graph.c
+// int main(int argc, char *argv[]) {
+//     if (argc < 2) {
+//         fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+//         return EXIT_FAILURE;
+//     }
+
+//     FILE *file = fopen(argv[1], "r");
+//     if (!file) {
+//         perror("Could not open input file");
+//         return EXIT_FAILURE;
+//     }
+
+//     int V;
+//     if (fscanf(file, "%d", &V) == 1) { // Read number of vertices
+//         Graph g = newGraph(V);
+
+//         char command[10];
+//         while (fscanf(file, "%s", command) != EOF) {
+//             Edge e;
+//             if (fscanf(file, "%d %d", &e.v, &e.w) == 2) { // Read edge vertices
+
+//                 if (strcmp(command, "insert") == 0) {
+//                     insertEdge(g, e);
+//                 } else if (strcmp(command, "remove") == 0) {
+//                     removeEdge(g, e);
+//                 } else {
+//                     fprintf(stderr, "Unknown command: %s\n", command);
+//                 }
+//             }
+//         }
+//         printf("Graph adjacency matrix:\n");
+//         showGraph(g);
+//         freeGraph(g);
+//     }
+//     fclose(file);
+
+//     return EXIT_SUCCESS;
+// }

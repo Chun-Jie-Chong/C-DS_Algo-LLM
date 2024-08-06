@@ -1,0 +1,10 @@
+insert 0 1 0 1
+delete 8
+del inset 9 4
+delete 8rt 1 2
+insert 2 3
+e~t 9 4
+delete 8
+del inset 9 4
+delete 8
+dele

@@ -1,0 +1,11 @@
+insert 10
+insearch 30
+delete 10
+search 10
+seat 50
+insere 25
+search 30
+delete 10
+search 10
+search 50
+delete 25

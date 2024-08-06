@@ -1,0 +1,9 @@
+insert 5.0 0
+)nsert 7.5 1
+insert 3.5 9
+print
+delete 2
+print
+search 70
+insert 7.5 1
+insert 3.550

@@ -1,0 +1,11 @@
+insert 0 100
+i
+insert 2 400
+delete 3
+delete 1
+nsert1 200
+insert 0 300
+insert 2 400
+delete 3
+delete 1
+insert 2 5

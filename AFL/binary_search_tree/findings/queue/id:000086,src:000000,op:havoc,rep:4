@@ -1,0 +1,13 @@
+insert 50
+insert 30rd 30
+delet 30
+find 30
+find 50t 70
+insert 20
+insert 40
+rt 60
+insert 80
+find 30
+delet 30
+find 30
+find 50

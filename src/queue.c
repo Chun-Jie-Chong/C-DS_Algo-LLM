@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Definition of the Node structure
 struct node {
@@ -67,26 +68,60 @@ int size(struct queue *q) {
 }
 
 // Main function for testing
-int main() {
+// int main() {
+//     struct queue *q = create();
+
+//     enqueue(q, 10); // Enqueue 10
+//     enqueue(q, 20); // Enqueue 20
+//     enqueue(q, 30); // Enqueue 30
+//     // viewQueue(q);   // Queue should be 10 -> 20 -> 30 -> NULL
+
+//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 10)
+//     // viewQueue(q);   // Queue should be 20 -> 30 -> NULL
+
+//     printf("Queue size: %d\n", size(q));  // Size should be 2
+
+//     enqueue(q, 40); // Enqueue 40
+//     // viewQueue(q);   // Queue should be 20 -> 30 -> 40 -> NULL
+
+//     printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 20)
+//     // viewQueue(q);   // Queue should be 30 -> 40 -> NULL
+
+//     printf("Queue size: %d\n", size(q));  // Size should be 2
+
+//     return 0;
+// }
+// Main function for testing
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        printf("Unable to open file %s\n", argv[1]);
+        return 1;
+    }
+
     struct queue *q = create();
+    char operation[10];
+    int value;
 
-    enqueue(q, 10); // Enqueue 10
-    enqueue(q, 20); // Enqueue 20
-    enqueue(q, 30); // Enqueue 30
-    // viewQueue(q);   // Queue should be 10 -> 20 -> 30 -> NULL
+    while (fscanf(file, "%s", operation) != EOF) {
+        if (strcmp(operation, "enqueue") == 0) {
+            if (fscanf(file, "%d", &value) == 1) {
+                enqueue(q, value);
+                // viewQueue(q);   // Uncomment for debugging
+            }
+        } else if (strcmp(operation, "dequeue") == 0) {
+            printf("Dequeued: %d\n", dequeue(q));
+            // viewQueue(q);   // Uncomment for debugging
+        } else if (strcmp(operation, "size") == 0) {
+            printf("Queue size: %d\n", size(q));
+        }
+    }
 
-    printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 10)
-    // viewQueue(q);   // Queue should be 20 -> 30 -> NULL
-
-    printf("Queue size: %d\n", size(q));  // Size should be 2
-
-    enqueue(q, 40); // Enqueue 40
-    // viewQueue(q);   // Queue should be 20 -> 30 -> 40 -> NULL
-
-    printf("Dequeued: %d\n", dequeue(q)); // Dequeue (should be 20)
-    // viewQueue(q);   // Queue should be 30 -> 40 -> NULL
-
-    printf("Queue size: %d\n", size(q));  // Size should be 2
-
+    fclose(file);
     return 0;
 }

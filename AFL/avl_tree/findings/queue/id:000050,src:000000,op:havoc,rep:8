@@ -1,0 +1,9 @@
+insert 1F
+insert 2J
+rt 30
+insert 40
+rt 5%
+insert 25
+0
+delete 10
+search 10ele

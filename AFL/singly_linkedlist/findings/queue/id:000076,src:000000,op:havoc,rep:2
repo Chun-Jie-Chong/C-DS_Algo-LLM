@@ -1,0 +1,8 @@
+insert 0 1
+insert 1 2
+insert 2 3
+iinsensert 1 4
+delete 2
+delete 1 4
+delete 2
+del 0

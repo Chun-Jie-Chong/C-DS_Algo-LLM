@@ -1,0 +1,5 @@
+enqueue 5
+enqueue 15
+dequeueädequeue
+dequeue
+size

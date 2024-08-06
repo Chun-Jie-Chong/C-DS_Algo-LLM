@@ -91,23 +91,23 @@ int contains(HashSet* set, int key) {
     return 0;
 }
 
-int main() {
-    HashSet* set = createHashSet();
+// int main() {
+//     HashSet* set = createHashSet();
     
-    add(set, 5);
-    add(set, 10);
-    add(set, 15);
+//     add(set, 5);
+//     add(set, 10);
+//     add(set, 15);
 
-    printf("Contains 10: %d\n", contains(set, 10));
-    printf("Contains 100: %d\n", contains(set, 100));
+//     printf("Contains 10: %d\n", contains(set, 10));
+//     printf("Contains 100: %d\n", contains(set, 100));
 
-    removeKey(set, 10);
-    printf("Contains 10 after removal: %d\n", contains(set, 10));
+//     removeKey(set, 10);
+//     printf("Contains 10 after removal: %d\n", contains(set, 10));
 
-    // freeHashSet(set);
+//     // freeHashSet(set);
     
-    return 0;
-}
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* ### Explanation: */
@@ -122,3 +122,39 @@ int main() {
 /* 8. **freeHashSet:** Frees all the memory used by the hash set. */
 /*  */
 /* You can expand this base implementation by adding additional functionalities, improving the hash function, or handling rehashes to improve performance. */
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    HashSet* set = createHashSet();
+    FILE* file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Failed to open input file");
+        return 1;
+    }
+
+    char operation[10];
+    int key;
+    while (fscanf(file, "%s %d", operation, &key) == 2) {
+        if (strcmp(operation, "add") == 0) {
+            add(set, key);
+            printf("Added %d\n", key);
+        } else if (strcmp(operation, "remove") == 0) {
+            removeKey(set, key);
+            printf("Removed %d\n", key);
+        } else if (strcmp(operation, "contains") == 0) {
+            int result = contains(set, key);
+            printf("Contains %d: %d\n", key, result);
+        } else {
+            fprintf(stderr, "Unknown operation: %s\n", operation);
+        }
+    }
+    
+    fclose(file);
+    
+    // freeHashSet(set);
+    
+    return 0;
+}

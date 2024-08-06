@@ -1,0 +1,14 @@
+insert 5.0 0
+insert 7.5 1
+insnsCrt 3.5 8
+priprint
+delete 2 7.5
+de0
+print
+delete 2 7.5
+dCrt 3.5 8
+print
+delete 2 7.5
+de0
+pri@t
+search 5

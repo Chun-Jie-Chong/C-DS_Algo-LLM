@@ -1,0 +1,14 @@
+insert 5.0 0
+insert 7.5 1
+insert 3.5 4
+print
+delete 2
+print
+searMh 7.5
+de 0
+print
+insert 7.5 1
+insert 3.5 4
+prinde 0
+print
+search 5.0

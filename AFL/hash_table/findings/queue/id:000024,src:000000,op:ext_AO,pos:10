@@ -1,0 +1,8 @@
+insert namupationDoe
+insert occupation Sare r
+insert language C
+search name
+search occupation
+search language
+delete name
+search nam

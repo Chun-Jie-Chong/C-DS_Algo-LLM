@@ -1,0 +1,19 @@
+in 3.t
+deŠete 7.5 9
+7.5 1
+insert  5.0 0
+i
+prin 7.5
+insert 7.5 1
+
+insert  5. 1
+ins
+delete 7.5 9
+in 3.t
+delete 7.5 9
+in 3.5 P
+prt 3t  5. 1
+ins
+delete 7.5 9
+. •
+ 5

@@ -3,6 +3,7 @@
 /* ```c */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Enum for node colors
 typedef enum { RED, BLACK } Color;
@@ -273,21 +274,54 @@ void printInorder(Node *root) {
 }
 
 // Main function for testing purposes
-int main() {
-    Node *root = NULL;
-    insertNode(&root, 10);
-    insertNode(&root, 20);
-    insertNode(&root, 30);
-    insertNode(&root, 40);
-    insertNode(&root, 50);
+// int main() {
+//     Node *root = NULL;
+//     insertNode(&root, 10);
+//     insertNode(&root, 20);
+//     insertNode(&root, 30);
+//     insertNode(&root, 40);
+//     insertNode(&root, 50);
     
+//     printf("Inorder Traversal: ");
+//     printInorder(root);
+    
+//     deleteNode(&root, 20);
+//     printf("Inorder Traversal after deletion: ");
+//     printInorder(root);
+    
+//     return 0;
+// }
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (file == NULL) {
+        perror("Failed to open file");
+        return EXIT_FAILURE;
+    }
+
+    Node *root = NULL;
+    char operation[10];
+    int value;
+
+    // Read operations from the file and perform them on the tree
+    while (fscanf(file, "%s %d", operation, &value) == 2) {
+        if (strcmp(operation, "insert") == 0) {
+            insertNode(&root, value);
+        } else if (strcmp(operation, "delete") == 0) {
+            deleteNode(&root, value);
+        } else {
+            fprintf(stderr, "Unknown operation: %s\n", operation);
+        }
+    }
+    fclose(file);
+
     printf("Inorder Traversal: ");
     printInorder(root);
-    
-    deleteNode(&root, 20);
-    printf("Inorder Traversal after deletion: ");
-    printInorder(root);
-    
+
     return 0;
 }
 /* ``` */

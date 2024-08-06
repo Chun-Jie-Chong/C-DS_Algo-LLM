@@ -1,0 +1,5 @@
+insert 0 1rt 2 3
+insert delete 6
+dele 4
+delete 6
+delete 6

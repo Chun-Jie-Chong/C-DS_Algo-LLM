@@ -3,6 +3,7 @@
 /* ```c */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Node structure
 typedef struct Node {
@@ -220,15 +221,70 @@ void printPostOrder(Node* root) {
 }
 
 // Main function to test the AVL tree
-int main() {
-    Node* root = NULL;
+// int main() {
+//     Node* root = NULL;
 
-    root = insert(root, 10);
-    root = insert(root, 20);
-    root = insert(root, 30);
-    root = insert(root, 40);
-    root = insert(root, 50);
-    root = insert(root, 25);
+//     root = insert(root, 10);
+//     root = insert(root, 20);
+//     root = insert(root, 30);
+//     root = insert(root, 40);
+//     root = insert(root, 50);
+//     root = insert(root, 25);
+
+//     printf("Preorder traversal of the constructed AVL tree is:\n");
+//     printPreOrder(root);
+
+//     printf("\nInorder traversal of the constructed AVL tree is:\n");
+//     printInOrder(root);
+
+//     printf("\nPostorder traversal of the constructed AVL tree is:\n");
+//     printPostOrder(root);
+
+//     root = deleteNode(root, 10);
+
+//     printf("\nPreorder traversal after deletion of 10:\n");
+//     printPreOrder(root);
+
+//     return 0;
+// }
+// Main function to test the AVL tree
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        printf("Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE* file = fopen(argv[1], "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
+
+    Node* root = NULL;
+    char command[10];
+    int key;
+
+    // Read commands from the file
+    while (fscanf(file, "%s %d", command, &key) != EOF) {
+        if (strcmp(command, "insert") == 0) {
+            root = insert(root, key);
+            printf("Inserted %d\n", key);
+        } else if (strcmp(command, "delete") == 0) {
+            root = deleteNode(root, key);
+            printf("Deleted %d\n", key);
+        } else if (strcmp(command, "search") == 0) {
+            Node* result = findNode(root, key);
+            if (result) {
+                printf("Found %d\n", key);
+            } else {
+                printf("%d not found\n", key);
+            }
+        } else {
+            printf("Unknown command: %s\n", command);
+        }
+    }
+
+    fclose(file);
 
     printf("Preorder traversal of the constructed AVL tree is:\n");
     printPreOrder(root);
@@ -238,11 +294,6 @@ int main() {
 
     printf("\nPostorder traversal of the constructed AVL tree is:\n");
     printPostOrder(root);
-
-    root = deleteNode(root, 10);
-
-    printf("\nPreorder traversal after deletion of 10:\n");
-    printPreOrder(root);
 
     return 0;
 }

@@ -1,0 +1,14 @@
+insert 90
+insert 60
+insert 70
+insert 20
+insert 20dele 30t 10
+delete 20
+insert 410
+insert 20
+rt 10
+delete 20
+insert 30
+t  20
+^t 10
+delete 20

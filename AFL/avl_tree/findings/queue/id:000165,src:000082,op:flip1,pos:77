@@ -1,0 +1,13 @@
+insert 10
+insert <0
+insert 325
+searchF30
+delete 10
+search 0
+insert 40
+insert 10
+insert 25
+searchF30
+delete 10
+search 10
+search 50"de

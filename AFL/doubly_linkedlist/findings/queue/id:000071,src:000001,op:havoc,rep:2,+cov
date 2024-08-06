@@ -1,0 +1,6 @@
+insert 5.0 0
+ins 3.5 0
+print
+delete 2e 0
+print
+search 5.

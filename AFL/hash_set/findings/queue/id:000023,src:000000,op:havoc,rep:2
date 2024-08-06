@@ -1,0 +1,8 @@
+add 5
+add 10
+add 15
+contains 10
+r 5
+add 10
+add 15
+contains 1

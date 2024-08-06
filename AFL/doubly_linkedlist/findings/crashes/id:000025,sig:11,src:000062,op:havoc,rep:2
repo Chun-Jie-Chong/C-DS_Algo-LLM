@@ -1,0 +1,16 @@
+insert 5.0 0
+insert 7.5 1
+insert 3.5 0
+print
+delete 7.t
+delete 7.5 1
+nt
+delete 7.5 1
+nt
+delete 7.5 1
+in
+print
+de 7.
+de 0
+pzint
+ch 5

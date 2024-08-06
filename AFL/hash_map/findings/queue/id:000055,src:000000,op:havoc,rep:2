@@ -1,0 +1,7 @@
+insert kkkkey3 3ns0
+insert key4 400
+lookup kert key4 400
+lookup key3
+lookup key5
+delete key3
+lookup k

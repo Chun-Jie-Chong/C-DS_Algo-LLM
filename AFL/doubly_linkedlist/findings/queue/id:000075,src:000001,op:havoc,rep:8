@@ -1,0 +1,9 @@
+inset  1
+insert 3 5 0
+insert 3 5r0
+print
+deleŠe 2
+print
+search 7.5
+de 0p
+search 5.0

@@ -1,0 +1,8 @@
+insert 5.0 0
+ins1
+insert 3.5 0
+prinv
+delete 2
+printert ,.5
+
+.0

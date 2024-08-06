@@ -1,0 +1,8 @@
+enqueue 10
+enqueue 20
+enqueue 30
+dequeue
+size
+enqueue 40
+dequeue
+size

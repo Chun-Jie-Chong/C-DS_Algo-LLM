@@ -1,0 +1,6 @@
+insert key3 300
+insert key 300
+insert key4 4004 400
+lookup key3
+lookup ke key3
+lookup k

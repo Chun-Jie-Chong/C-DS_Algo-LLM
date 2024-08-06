@@ -66,26 +66,61 @@ void destroyStack(Stack *stack) {
     free(stack);
 }
 
-int main() {
-    Stack *stack = createStack(MAX_CAPACITY);
+// int main() {
+//     Stack *stack = createStack(MAX_CAPACITY);
 
-    push(stack, 10);
-    push(stack, 20);
-    push(stack, 30);
+//     push(stack, 10);
+//     push(stack, 20);
+//     push(stack, 30);
 
-    printf("Top element is %d\n", top(stack));
-    printf("Stack size is %d\n", size(stack));
+//     printf("Top element is %d\n", top(stack));
+//     printf("Stack size is %d\n", size(stack));
 
-    printf("Popped element is %d\n", pop(stack));
-    printf("Top element after pop is %d\n", top(stack));
-    printf("Stack size after pop is %d\n", size(stack));
+//     printf("Popped element is %d\n", pop(stack));
+//     printf("Top element after pop is %d\n", top(stack));
+//     printf("Stack size after pop is %d\n", size(stack));
 
-    if (isEmpty(stack)) {
-        printf("Stack is empty\n");
-    } else {
-        printf("Stack is not empty\n");
+//     if (isEmpty(stack)) {
+//         printf("Stack is empty\n");
+//     } else {
+//         printf("Stack is not empty\n");
+//     }
+
+//     destroyStack(stack);
+//     return 0;
+// }
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
 
+    FILE *file = fopen(argv[1], "rb");
+    if (!file) {
+        perror("fopen");
+        exit(EXIT_FAILURE);
+    }
+
+    Stack *stack = createStack(MAX_CAPACITY);
+
+    int action, value;
+    while (fscanf(file, "%d %d", &action, &value) != EOF) {
+        switch (action) {
+            case 0: // Push
+                push(stack, value);
+                break;
+            case 1: // Pop
+                if (!isEmpty(stack)) {
+                    pop(stack);
+                }
+                break;
+            default:
+                printf("Unknown action: %d\n", action);
+        }
+    }
+
+    fclose(file);
     destroyStack(stack);
     return 0;
 }

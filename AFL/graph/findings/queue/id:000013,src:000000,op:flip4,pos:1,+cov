@@ -1,0 +1,6 @@
+56insert 0 1
+insert 0 2
+insert 1 2
+insert 1 3
+insert 2 4
+remove 1 2

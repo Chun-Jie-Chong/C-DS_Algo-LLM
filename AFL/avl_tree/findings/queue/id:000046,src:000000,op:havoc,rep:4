@@ -1,0 +1,11 @@
+insert 10
+insert 20
+insert 30
+insert0
+searin  4n 50
+insert 25
+search 30
+delete 1
+search 10
+search 50
+delete 25

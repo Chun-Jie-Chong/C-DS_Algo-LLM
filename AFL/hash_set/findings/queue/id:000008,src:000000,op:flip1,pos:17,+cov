@@ -1,0 +1,6 @@
+add 5
+add 10
+add 05
+contains 10
+remove 10
+contains 1

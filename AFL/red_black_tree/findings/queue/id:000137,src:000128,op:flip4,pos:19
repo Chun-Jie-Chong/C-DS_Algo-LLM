@@ -1,0 +1,9 @@
+insert 906insert 206insert 110
+insert 20
+insert 30dele 300
+insert 20
+insert 30dele 30
+t 10
+insert 20
+insert 10
+d

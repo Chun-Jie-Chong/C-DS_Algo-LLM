@@ -123,24 +123,62 @@ void free_table(HashTable *hashTable) {
     free(hashTable);
 }
 
-int main() {
-    HashTable *hashTable = create_table();
+// int main() {
+//     HashTable *hashTable = create_table();
 
-    insert(hashTable, "name", "John Doe");
-    insert(hashTable, "occupation", "Software Developer");
-    insert(hashTable, "language", "C");
+//     insert(hashTable, "name", "John Doe");
+//     insert(hashTable, "occupation", "Software Developer");
+//     insert(hashTable, "language", "C");
 
-    printf("Name: %s\n", search(hashTable, "name"));
-    printf("Occupation: %s\n", search(hashTable, "occupation"));
-    printf("Language: %s\n", search(hashTable, "language"));
+//     printf("Name: %s\n", search(hashTable, "name"));
+//     printf("Occupation: %s\n", search(hashTable, "occupation"));
+//     printf("Language: %s\n", search(hashTable, "language"));
 
-    delete(hashTable, "name");
-    printf("Name after deletion: %s\n", search(hashTable, "name"));  // Should be NULL
+//     delete(hashTable, "name");
+//     printf("Name after deletion: %s\n", search(hashTable, "name"));  // Should be NULL
 
-    free_table(hashTable);
+//     free_table(hashTable);
 
-    return 0;
-}
+//     return 0;
+// }
 /* ``` */
 /*  */
 /* This code provides a simple HashTable implementation with basic functionalities such as insertion, searching, and deletion. We also perform resource cleanup to prevent memory leaks. */
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Failed to open file");
+        return EXIT_FAILURE;
+    }
+
+    HashTable *hashTable = create_table();
+    char operation[10];
+    char key[50];
+    char value[50];
+
+    while (fscanf(file, "%s", operation) != EOF) {
+        if (strcmp(operation, "insert") == 0) {
+            if (fscanf(file, "%s %s", key, value) ==2) {
+                insert(hashTable, key, value);
+            }
+        } else if (strcmp(operation, "search") == 0) {
+            if (fscanf(file, "%s", key) ==1) {
+                char *result = search(hashTable, key);
+                printf("Search %s: %s\n", key, result ? result : "Not found");
+            }
+        } else if (strcmp(operation, "delete") == 0) {
+            if (fscanf(file, "%s", key) == 1) {
+                delete(hashTable, key);
+            }
+        }
+    }
+
+    fclose(file);
+    free_table(hashTable);
+    return EXIT_SUCCESS;
+}

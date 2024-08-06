@@ -1,0 +1,5 @@
+insert 0 1
+insert 1 sert 2 3
+insert 1 4
+delete 2
+delete 0

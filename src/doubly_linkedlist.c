@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Definition of the List structure
 typedef struct list {
@@ -117,28 +118,73 @@ void print(List *list) {
 }
 
 // Main function for testing
-int main() {
+// int main() {
+//     List *list = NULL;
+
+//     list = insert(list, 10.5, 0); // Insert 10.5 at position 0
+//     list = insert(list, 20.5, 1); // Insert 20.5 at position 1
+//     list = insert(list, 15.5, 1); // Insert 15.5 at position 1
+//     print(list);                  // List should be 10.5 <-> 15.5 <-> 20.5 <-> NULL
+
+//     list = delete(list, 1);       // Delete node at position 1
+//     print(list);                  // List should be 10.5 <-> 20.5 <-> NULL
+
+//     int pos = search(list, 20.5); // Search for 20.5
+//     printf("Position of 20.5: %d\n", pos); // Should print 1
+
+//     list = delete(list, 0);       // Delete node at position 0
+//     print(list);                  // List should be 20.5 <-> NULL
+
+//     list = delete(list, 0);       // Delete node at position 0
+//     print(list);                  // List should be NULL
+
+//     pos = search(list, 20.5);     // Search for 20.5
+//     printf("Position of 20.5: %d\n", pos); // Should print -1
+
+//     return 0;
+// }
+// Function to process commands from file
+void process_commands(FILE *file) {
     List *list = NULL;
+    char line[256];
 
-    list = insert(list, 10.5, 0); // Insert 10.5 at position 0
-    list = insert(list, 20.5, 1); // Insert 20.5 at position 1
-    list = insert(list, 15.5, 1); // Insert 15.5 at position 1
-    print(list);                  // List should be 10.5 <-> 15.5 <-> 20.5 <-> NULL
+    while (fgets(line, sizeof(line), file)) {
+        char command[10];
+        double value;
+        int pos;
 
-    list = delete(list, 1);       // Delete node at position 1
-    print(list);                  // List should be 10.5 <-> 20.5 <-> NULL
+        if (sscanf(line, "%s %lf %d", command, &value, &pos) == 3) {
+            if (strcmp(command, "insert") == 0) {
+                list = insert(list, value, pos);
+            } else if (strcmp(command, "delete") == 0) {
+                list = delete(list, pos);
+            }
+        } else if (sscanf(line, "%s %lf", command, &value) == 2) {
+            if (strcmp(command, "search") == 0) {
+                int result = search(list, value);
+                printf("Position of %.2f: %d\n", value, result);
+            }
+        } else if (strcmp(line, "print\n") == 0) {
+            print(list);
+        }
+    }
+}
 
-    int pos = search(list, 20.5); // Search for 20.5
-    printf("Position of 20.5: %d\n", pos); // Should print 1
+// Main function for testing
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
 
-    list = delete(list, 0);       // Delete node at position 0
-    print(list);                  // List should be 20.5 <-> NULL
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Failed to open input file");
+        return 1;
+    }
 
-    list = delete(list, 0);       // Delete node at position 0
-    print(list);                  // List should be NULL
+    process_commands(file);
 
-    pos = search(list, 20.5);     // Search for 20.5
-    printf("Position of 20.5: %d\n", pos); // Should print -1
-
+    fclose(file);
     return 0;
 }

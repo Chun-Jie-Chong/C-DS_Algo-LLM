@@ -1,0 +1,8 @@
+insert key3 300
+insert ke†Ë 400
+lookup key3
+lookup y3 300
+insert kÅ†Ë 400
+lookkey5
+delete key3
+lookup k

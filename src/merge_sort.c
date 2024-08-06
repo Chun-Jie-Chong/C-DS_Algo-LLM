@@ -67,17 +67,42 @@ void printArray(int arr[], int size) {
 }
 
 // Driver program to test above functions
-int main() {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
+// int main() {
+//     int arr[] = {12, 11, 13, 5, 6, 7};
+//     int arr_size = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Given array is \n");
-    printArray(arr, arr_size);
+//     printf("Given array is \n");
+//     printArray(arr, arr_size);
 
-    mergeSort(arr, 0, arr_size - 1);
+//     mergeSort(arr, 0, arr_size - 1);
 
-    printf("Sorted array is \n");
-    printArray(arr, arr_size);
+//     printf("Sorted array is \n");
+//     printArray(arr, arr_size);
+//     return 0;
+// }
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Unable to open file");
+        return 1;
+    }
+
+    int arr[1000];
+    int n = 0;
+
+    while (fscanf(file, "%d", &arr[n]) != EOF) {
+        n++;
+    }
+    fclose(file);
+
+    mergeSort(arr, 0, n - 1);
+
+    printArray(arr, n);
     return 0;
 }
 /* ``` */

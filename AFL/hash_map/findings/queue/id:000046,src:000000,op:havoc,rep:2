@@ -1,0 +1,9 @@
+insert key3 300
+insert key4 4¸0
+lookup key3
+lookup key4 4¸0
+lookup key3
+lookup key5
+y5
+delete key3
+lookup k

@@ -1,0 +1,8 @@
+insert name John Doe
+insert occupation Software Developer
+insert language C
+search name
+search occupation
+search language
+delete name
+search name

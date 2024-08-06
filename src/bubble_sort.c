@@ -32,13 +32,38 @@ void printArray(int arr[], int size) {
     printf("\n");
 }
 
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    printf("Unsorted array: \n");
-    printArray(arr, n);
+// int main() {
+//     int arr[] = {64, 34, 25, 12, 22, 11, 90};
+//     int n = sizeof(arr)/sizeof(arr[0]);
+//     printf("Unsorted array: \n");
+//     printArray(arr, n);
+//     bubbleSort(arr, n);
+//     printf("Sorted array: \n");
+//     printArray(arr, n);
+//     return 0;
+// }
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Unable to open file");
+        return 1;
+    }
+
+    int arr[1000];
+    int n = 0;
+
+    while (fscanf(file, "%d", &arr[n]) != EOF) {
+        n++;
+    }
+    fclose(file);
+
     bubbleSort(arr, n);
-    printf("Sorted array: \n");
+
     printArray(arr, n);
     return 0;
 }

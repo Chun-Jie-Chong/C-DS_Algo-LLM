@@ -1,0 +1,10 @@
+insert 15
+insert 10
+insert 20
+insert 5
+insert 12
+insert 17
+insert 25
+find 10
+delete 10
+find 10

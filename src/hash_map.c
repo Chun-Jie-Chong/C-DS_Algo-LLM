@@ -148,3 +148,46 @@
 /* ``` */
 /*  */
 /* This implementation includes the basic features necessary for a functional HashMap, including initialization, insertion, lookup, deletion, and cleanup. It uses separate chaining to handle collisions and assumes keys are strings that need to be dynamically copied for storage within the map. */
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (!file) {
+        perror("Failed to open file");
+        return 1;
+    }
+
+    HashMap *map = createHashMap(10);
+    char command[10];
+    char key[100];
+    int value;
+
+    while (fscanf(file, "%s", command) != EOF) {
+        if (strcmp(command, "insert") == 0) {
+            if (fscanf(file, "%s %d", key, &value) == 2) {
+                insert(map, key, value);
+            }
+        } else if (strcmp(command, "lookup") == 0) {
+            if (fscanf(file, "%s", key) == 1) {
+                if (get(map, key, &value)) {
+                    printf("%s: %d\n", key, value);
+                } else {
+                    printf("%s not found\n", key);
+                }
+            }
+        } else if (strcmp(command, "delete") == 0) {
+            if (fscanf(file, "%s", key) == 1) {
+                delete(map, key);
+            }
+        } else {
+            fprintf(stderr, "Unknown command: %s\n", command);
+        }
+    }
+
+    fclose(file);
+    freeHashMap(map);
+    return 0;
+}

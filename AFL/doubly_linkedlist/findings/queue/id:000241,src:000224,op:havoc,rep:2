@@ -1,0 +1,14 @@
+insert 5.0 0
+insert 7.5 1
+insert 3.0 0
+in0 0
+insert 7.7 1
+insert 3.0 0
+insert 7.5 5
+insert 7.5 530
+print30
+print
+tc 2
+pr7.5 5
+insert 7.5 530
+ch 5

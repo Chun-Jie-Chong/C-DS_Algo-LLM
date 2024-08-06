@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Define the structure for a node
 struct Node {
@@ -84,24 +85,62 @@ void viewList(struct Node* head) {
     printf("NULL\n");
 }
 
-int main() {
+// int main() {
+//     struct Node* head = NULL;
+    
+//     insert(&head, 0, 1);
+//     insert(&head, 1, 2);
+//     insert(&head, 2, 3);
+//     insert(&head, 1, 4);
+    
+//     printf("List after insertions: ");
+//     viewList(head);
+    
+//     deletion(&head, 2);
+//     printf("List after deletion at position 2: ");
+//     viewList(head);
+    
+//     deletion(&head, 0);
+//     printf("List after deletion at position 0: ");
+//     viewList(head);
+    
+//     return 0;
+// }
+
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE *file = fopen(argv[1], "r");
+    if (file == NULL) {
+        printf("Error opening file\n");
+        return 1;
+    }
+
     struct Node* head = NULL;
-    
-    insert(&head, 0, 1);
-    insert(&head, 1, 2);
-    insert(&head, 2, 3);
-    insert(&head, 1, 4);
-    
-    printf("List after insertions: ");
+    char operation[10];
+    int pos, val;
+
+    while (fscanf(file, "%s", operation) != EOF) {
+        if (strcmp(operation, "insert") == 0) {
+            if (fscanf(file, "%d %d", &pos, &val) == 2) {
+                insert(&head, pos, val);
+            }
+        } else if (strcmp(operation, "delete") == 0) {
+            if (fscanf(file, "%d", &pos) == 1) {
+                deletion(&head, pos);
+            }
+        } else {
+            printf("Invalid operation: %s\n", operation);
+        }
+    }
+
+    fclose(file);
+
+    printf("Final list: ");
     viewList(head);
-    
-    deletion(&head, 2);
-    printf("List after deletion at position 2: ");
-    viewList(head);
-    
-    deletion(&head, 0);
-    printf("List after deletion at position 0: ");
-    viewList(head);
-    
+
     return 0;
 }

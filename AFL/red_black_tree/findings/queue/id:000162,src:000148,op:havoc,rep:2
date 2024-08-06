@@ -1,0 +1,16 @@
+insert 10
+delete 20
+insert 10ert 20Šrt 20dele 30t 10
+delete 20
+insert 410
+insert 20
+rt 10
+delete 20
+insert 10
+delete 20
+insert 30
+t  20
+rt 30
+t  20
+^t 10
+delete 20
