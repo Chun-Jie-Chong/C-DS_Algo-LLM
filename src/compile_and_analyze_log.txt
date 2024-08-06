@@ -13,10 +13,6 @@ Compilation and analysis of bubble_sort.c succeeded
 Analyzing and compiling dfs.c to dfs.o
 Compilation and analysis of dfs.c succeeded
 Analyzing and compiling doubly_linkedlist.c to doubly_linkedlist.o
-doubly_linkedlist.c:90:22: warning: Use of memory after it is freed [unix.Malloc]
-        Node* next = temp->next;
-                     ^~~~~~~~~~
-1 warning generated.
 Compilation and analysis of doubly_linkedlist.c succeeded
 Analyzing and compiling graph.c to graph.o
 Compilation and analysis of graph.c succeeded
@@ -29,6 +25,10 @@ Compilation and analysis of hash_table.c succeeded
 Analyzing and compiling merge_sort.c to merge_sort.o
 Compilation and analysis of merge_sort.c succeeded
 Analyzing and compiling queue.c to queue.o
+queue.c:89:5: warning: Potential leak of memory pointed to by 'q' [unix.Malloc]
+    printf("Queue size: %d\n", size(q));  // Size should be 2
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
 Compilation and analysis of queue.c succeeded
 Analyzing and compiling red_black_tree.c to red_black_tree.o
 red_black_tree.c:159:18: warning: Access to field 'parent' results in a dereference of a null pointer (loaded from variable 'x') [core.NullDereference]
