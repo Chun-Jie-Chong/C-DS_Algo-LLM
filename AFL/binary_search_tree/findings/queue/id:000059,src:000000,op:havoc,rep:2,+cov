@@ -1,13 +1,10 @@
-insfrt 50
-insert 30
-insert 70
+nsert 50
+insert 3delesert 70
 insert 20
 insert 40
 insert 60
 insert 80
 find 30
-deletert 40
-insert 60
-i 30
+delete 30
 find 30
 find 50

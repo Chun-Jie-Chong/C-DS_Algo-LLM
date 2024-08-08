@@ -1,0 +1,9 @@
+insert 5.0 0
+insert 7.5 1
+insert 7.5 1
+insert 3.5 8
+t 7.5 1
+insert 3.5 8
+print
+t
+search 5.0

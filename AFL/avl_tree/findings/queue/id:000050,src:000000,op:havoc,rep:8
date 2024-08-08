@@ -1,9 +1,6 @@
-insert 1F
-insert 2J
-rt 30
-insert 40
-rt 5%
-insert 25
+insert 10
+insert 20
 0
-delete 10
-search 10ele
+insert0
+inser K5
+ch e

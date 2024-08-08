@@ -1,0 +1,9 @@
+insert 10
+insert 2
+insert delen 40
+0
+insert 25
+search 3 10
+search 10
+search 50
+delete 25

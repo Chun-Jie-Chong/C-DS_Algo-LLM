@@ -1,0 +1,9 @@
+insert 5.0 0
+insert 7.5 1
+in 3.5 0
+print
+delete 2 4.50
+print
+delete 2 2.5
+de 0
+print

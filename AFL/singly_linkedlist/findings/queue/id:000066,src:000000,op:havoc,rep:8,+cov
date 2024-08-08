@@ -1,0 +1,6 @@
+insert 0 1
+\t 1 2
+insert 2 2
+insert 2 3 insert 134
+delete 23
+insert ete 0

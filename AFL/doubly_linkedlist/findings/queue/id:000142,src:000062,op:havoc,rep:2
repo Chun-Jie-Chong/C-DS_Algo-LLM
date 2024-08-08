@@ -1,15 +1,13 @@
-insert 5.0 0
-insert 7.5 1int
-delete 7.5 1
-in 3.5 P
-prt 
+;nser
 insert 3.5 0
 print
-delete 7.5 1
-in 3.5 P
-prt 3.5 0
+delete  3.5 0
+pete 2
 print
-de 7.
-de0
-pzint
-ch 5
+n
+insert 3.5 0
+print
+delete 2 0
+ÿS
+print
+search 5.0

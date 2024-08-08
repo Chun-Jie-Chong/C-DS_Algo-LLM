@@ -1,6 +1,8 @@
 insert 10
-inseri 20
+insert 20
 insert 30
 delete 20
-insert 0
-delete  50
+inserte 20
+|t 40
+insertt 40
+insert 50

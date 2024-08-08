@@ -1,0 +1,12 @@
+enqueue 5
+enqueue 15çe
+enqueue 3dequeue
+size
+enqueue 5
+dequeue
+size
+ze
+dequeue 45
+enqueue 55
+size
+dequeue

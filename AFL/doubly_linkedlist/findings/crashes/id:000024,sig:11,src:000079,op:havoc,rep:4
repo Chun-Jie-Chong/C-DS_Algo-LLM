@@ -1,0 +1,13 @@
+insert 5.0 0
+insert 7.5 100000rt $.5 0
+print
+delete 2 7.t $.5 0
+print
+delete 2-7.5
+de 0
+print
+de 0
+prt
+de 0
+print
+sea

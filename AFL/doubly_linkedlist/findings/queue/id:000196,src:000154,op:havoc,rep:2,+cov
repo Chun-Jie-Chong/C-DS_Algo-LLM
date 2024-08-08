@@ -1,0 +1,13 @@
+insert 5.0 0
+insert 7.5 1
+insert 3.5 0
+pri 5.0 0
+insert 7.5 1
+in 3.5 nt
+delete 2 705
+de 0
+print
+de 0
+prt0
+print
+sea

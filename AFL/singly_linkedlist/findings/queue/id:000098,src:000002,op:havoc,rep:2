@@ -1,0 +1,7 @@
+insert 0 10000
+insert 2 400
+delete 3
+dele 2 400
+delete 3
+delete 1
+insert ÿ 5

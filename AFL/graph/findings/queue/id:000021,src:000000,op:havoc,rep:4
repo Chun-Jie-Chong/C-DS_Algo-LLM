@@ -1,1 +1,5 @@
-5ive 1 2
+5
+insert 1 2
+insert 1 3
+rt 24
+remove 1 2

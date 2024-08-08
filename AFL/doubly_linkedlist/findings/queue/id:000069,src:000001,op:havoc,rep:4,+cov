@@ -1,11 +1,12 @@
-insert 5.0 0
-insert 7.5 10
+insert 5.prin0 0
+inseşt 7.5 1
+isert 3.5 0
 print
-delete 2
+ 3.5 0
 print
-search 7.5
+delete 2 7.5
 de 0
 print
 de 0
-p
-sdarch 5è
+print
+search 5.0

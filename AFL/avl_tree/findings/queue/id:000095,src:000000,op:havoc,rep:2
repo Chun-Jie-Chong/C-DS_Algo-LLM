@@ -3,10 +3,11 @@ insert 20
 insert 30
 insert 40
 insert 50
-i 10
-search 10
-search te 10
-search 10
+insert 25
+search 30
+delete 10
+ch h 30
+delete 1arch 10
+10
 search 50
-delet50
 delete 25

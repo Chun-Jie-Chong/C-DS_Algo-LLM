@@ -1,0 +1,14 @@
+enqueue 25
+size
+enqueue ueue 25
+size
+enqueue 35
+35
+dequeue
+size
+enqueue 45
+enqueue 55
+size 35
+dequeue
+s
+dequeue

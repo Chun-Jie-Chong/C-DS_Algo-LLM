@@ -1,0 +1,6 @@
+inseŒt key3 300
+inser` key4 400
+lookup key3
+lookup key5
+delete key3
+lookup k

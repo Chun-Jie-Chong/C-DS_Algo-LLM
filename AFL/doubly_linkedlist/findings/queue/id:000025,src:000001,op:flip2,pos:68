@@ -4,7 +4,7 @@ insert 3.5 0
 print
 delete 2
 print
-search 7-5
+ch 7-5
 de 0
 print
 de 0

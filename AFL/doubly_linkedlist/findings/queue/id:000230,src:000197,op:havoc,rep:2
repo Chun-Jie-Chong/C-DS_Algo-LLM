@@ -1,0 +1,13 @@
+insert 50 0 0
+insert 7.5 1
+insert 3.5  0
+
+insert 7.5 1
+insert 3.5  7.5 1
+insert 3.5 7.5 0
+print
+de7.5 0
+print
+delete 2 705
+t
+se

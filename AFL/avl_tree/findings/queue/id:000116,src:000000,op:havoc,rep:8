@@ -1,0 +1,12 @@
+insert 10
+insert 20
+insert 30
+insert 40
+insert 50
+insert I5
+search 30
+delete 100
+insert 50
+insert 
+sh 1
+search 50d

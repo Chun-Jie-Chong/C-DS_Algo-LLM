@@ -1,0 +1,14 @@
+pri^rt 5.0 0
+insert 7.5 17.5 1
+insert 3+5 0
+print
+de
+insert 3+5 0
+prte 2
+print
+search 7.5
+de 0
+print
+de 0
+print
+search 5.0

@@ -1,0 +1,11 @@
+insert 5.0 0
+insert 7.5 1
+insert 3.5 9
+de 0
+ 1
+insert 3.5 9
+de 07.5 1
+insert 3.5 9
+de
+print
+search 5.0

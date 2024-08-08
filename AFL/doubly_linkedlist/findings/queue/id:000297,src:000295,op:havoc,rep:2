@@ -1,0 +1,15 @@
+insert 5.0 0
+insert 7.5 1
+in 0
+pri
+print
+delete 2 6.5
+dt
+delnt
+delete 2 6i 0
+print
+delete 22 6i 0
+print
+delete 2 6G 6G5
+dt
+delete 2 6t

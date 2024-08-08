@@ -2,9 +2,13 @@ insert 10
 insert 20
 insert 30
 insert 40
+insert 50000000000000000000000000
+insert 25
+searcinsert 40
 insert 50
-insert 24
-search 30
-deleteinsert 40
-insert 50
-insert 25* 25
+insert 25
+sh 30
+delete 10
+sV|rch 10
+search 50
+delete 25

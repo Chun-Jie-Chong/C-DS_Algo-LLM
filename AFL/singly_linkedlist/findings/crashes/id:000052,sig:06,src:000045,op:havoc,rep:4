@@ -1,0 +1,9 @@
+insert 0 1rrrrrrre rrrrrrrrrrrrrrr
+insert 2 3
+insert 1 4
+delete rrrrrrrrrrrrrrrr
+insert 1 2
+insert 2 3
+insert 1 4
+delete 8
+Delete 0

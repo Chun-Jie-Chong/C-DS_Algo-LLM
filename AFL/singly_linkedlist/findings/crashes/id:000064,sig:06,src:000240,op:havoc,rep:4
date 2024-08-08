@@ -1,0 +1,14 @@
+insert 0 11
+insert 1 2
+insert 2 3
+inse 11
+insert 1 2
+insert 2 3
+indeletesinsert 1 2
+insert 2 5
+insert 1 4
+
+insert 1 2
+insert 2 3
+delete 8
+deleƒe 0

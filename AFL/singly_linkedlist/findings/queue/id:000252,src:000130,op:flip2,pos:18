@@ -1,8 +1,0 @@
-insert 0 1
-insert 7 2
-insert 2 s1 2
-insert 2 3
-insert 7 43
-insert 7 4
-de 2
-delete 0

@@ -1,0 +1,16 @@
+inse0 0 
+insert 3.5  0
+
+rt 0
+  0
+
+insert 7.5 1
+insert 3.5  0
+insert 7.5 1
+insert 3.5  0
+
+insert 7.5 1
+insert 3.5  0
+print
+delete 2 705
+t

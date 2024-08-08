@@ -1,0 +1,9 @@
+insert 0 1
+insert 12 3
+insert 4 4 1
+insert 12 3
+insert 4 4 4 1
+insert 12 3
+insert  4
+dn 2
+insede 0

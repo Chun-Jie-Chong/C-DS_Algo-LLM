@@ -1,8 +1,8 @@
-insert namupationDoe
-insert occupation Sare r
+insert n
+insert on Sare r
 insert language C
 search name
-search occupation
+search on
 search language
 delete name
 search nam

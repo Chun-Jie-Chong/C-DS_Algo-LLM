@@ -1,0 +1,5 @@
+add 5
+cons 10
+remove 10s 10
+remove 10
+contains 1

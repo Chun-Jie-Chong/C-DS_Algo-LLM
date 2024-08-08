@@ -1,7 +1,0 @@
-insert 0 1
-insert 
-delete1 2
-insert 2 3
-insert 1e4
-delete 6
-delete 0

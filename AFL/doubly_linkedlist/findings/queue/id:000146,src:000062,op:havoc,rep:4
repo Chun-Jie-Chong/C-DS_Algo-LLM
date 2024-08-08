@@ -1,0 +1,15 @@
+;nse
+insert 3.5 0
+print
+t 5.0 0
+insert 3.5 0
+print
+delete 2 0ent
+n
+insert 3.5 0
+print
+delete 2 0
+p
+de S
+print
+search 5

@@ -1,0 +1,14 @@
+insert 50
+insert 30
+i 80
+find 30
+delete 50
+findn 70
+insert 20
+insert 40
+insert 60
+|n 80
+find 30
+delete 30
+find 30
+find 50

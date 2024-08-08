@@ -1,0 +1,75 @@
+afl_banner: stack
+unique_crashes: 0
+cycles_done: 0
+unique_hangs: 3
+---------------------------------------------
+afl_banner: hash_map
+unique_crashes: 16
+cycles_done: 54
+unique_hangs: 0
+---------------------------------------------
+afl_banner: singly_linkedlist
+unique_crashes: 65
+cycles_done: 4
+unique_hangs: 0
+---------------------------------------------
+afl_banner: binary_search_tree
+unique_crashes: 48
+cycles_done: 3
+unique_hangs: 0
+---------------------------------------------
+afl_banner: merge_sort
+unique_crashes: 0
+cycles_done: 1
+unique_hangs: 1
+---------------------------------------------
+afl_banner: graph
+unique_crashes: 25
+cycles_done: 89
+unique_hangs: 2
+---------------------------------------------
+afl_banner: doubly_linkedlist
+unique_crashes: 59
+cycles_done: 4
+unique_hangs: 1
+---------------------------------------------
+afl_banner: red_black_tree
+unique_crashes: 45
+cycles_done: 6
+unique_hangs: 0
+---------------------------------------------
+afl_banner: bubble_sort
+unique_crashes: 0
+cycles_done: 1
+unique_hangs: 1
+---------------------------------------------
+afl_banner: hash_set
+unique_crashes: 22
+cycles_done: 71
+unique_hangs: 0
+---------------------------------------------
+afl_banner: dfs
+unique_crashes: 54
+cycles_done: 2
+unique_hangs: 1
+---------------------------------------------
+afl_banner: hash_table
+unique_crashes: 19
+cycles_done: 29
+unique_hangs: 0
+---------------------------------------------
+afl_banner: queue
+unique_crashes: 13
+cycles_done: 245
+unique_hangs: 0
+---------------------------------------------
+afl_banner: bfs
+unique_crashes: 27
+cycles_done: 3
+unique_hangs: 3
+---------------------------------------------
+afl_banner: avl_tree
+unique_crashes: 58
+cycles_done: 6
+unique_hangs: 0
+---------------------------------------------

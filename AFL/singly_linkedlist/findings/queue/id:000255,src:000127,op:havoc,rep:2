@@ -1,0 +1,9 @@
+insert 0 1
+insert 1 2
+insert 7 3
+insert 7 3
+insert 7 4
+delete 2
+ft 7 4
+delete 2
+felete 0

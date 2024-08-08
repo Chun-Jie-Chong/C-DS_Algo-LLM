@@ -1,0 +1,12 @@
+insert 5.0 0
+insert 7.5 10
+print
+de  8
+pete 2
+print
+search 7.5
+de 0
+print
+d 0
+print
+search 5.0

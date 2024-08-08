@@ -1,0 +1,7 @@
+insert 0 1
+insert 1 2
+insert 2 3
+insert 8 4
+d 3
+insert 8 4
+de

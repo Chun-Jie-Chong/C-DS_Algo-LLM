@@ -1,0 +1,10 @@
+int 1 4
+delete 2
+deletedele t 2 3
+insert 1 4
+delete1
+insert 1 2
+insert 2 3
+insert 1 4
+delete 2
+delete 0

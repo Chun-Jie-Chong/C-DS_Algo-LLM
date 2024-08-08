@@ -1,6 +1,6 @@
 add 5
-add 10
-add 15
-apns 10
-ve 10
+add 00
+remadd 15
+contains 10
+re 10
 contains 1

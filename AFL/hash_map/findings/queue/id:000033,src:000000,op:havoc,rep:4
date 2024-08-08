@@ -1,0 +1,5 @@
+insert key3 300
+insert key4 400
+lookup k`y3
+lookup kekupdelete key3
+up k

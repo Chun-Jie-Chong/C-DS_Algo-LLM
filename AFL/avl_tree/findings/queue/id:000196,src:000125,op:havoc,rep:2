@@ -1,0 +1,16 @@
+insert 1 sear0
+insert 20
+insert 3
+insert 40
+insert 50
+in0
+delete 10
+ 25
+search 30
+delete 10
+search 30
+delete 10
+0
+search 10
+search 50
+delete 25

@@ -1,0 +1,8 @@
+add 5
+add 10
+add 15
+contains 10
+remoTe 10
+contains 15
+contains 10
+remove 10

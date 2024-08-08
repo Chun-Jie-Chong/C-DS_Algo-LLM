@@ -1,0 +1,13 @@
+;nsy
+insert 3.5 3.5 0
+prin{
+delete 2 0
+print0
+prin{
+delete 2 0
+print
+de S
+prinp
+search 5n{
+delete 2 0
+N

@@ -1,0 +1,14 @@
+insert 0 100
+insert 1 200
+0
+insert 2 400
+delt 3
+delete 1
+insert 2 50ÿÿÿÿ
+insert 3
+delete 1
+insert 2 50 300
+insert 2 400
+delete 3
+delete 1
+insert 2 5

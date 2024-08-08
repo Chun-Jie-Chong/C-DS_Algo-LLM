@@ -1,0 +1,9 @@
+insert name John Doe
+insert occupation Sare r
+insert language C
+search name
+search occupation
+search language
+delete nam nage C
+search name
+search m

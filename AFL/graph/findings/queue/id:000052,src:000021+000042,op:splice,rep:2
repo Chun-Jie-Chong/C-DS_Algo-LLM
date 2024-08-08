@@ -1,0 +1,12 @@
+5
+insert 1 2
+insert 1 3
+rt 24
+ret
+1 2
+ir 2 4
+remove  1 3
+in rt 1 2
+er 2 4
+remove  1 2 4
+rem

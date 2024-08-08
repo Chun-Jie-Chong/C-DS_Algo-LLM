@@ -1,0 +1,12 @@
+enqueue 25
+seue 35
+dequeue
+size
+eize
+enqueue 35
+dequeue
+size
+enq 45
+enqueue 55
+size
+dequeue

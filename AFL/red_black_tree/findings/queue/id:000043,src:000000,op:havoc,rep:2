@@ -1,0 +1,9 @@
+insert 10
+
+n 20
+insert 30
+delete 20sert 20
+insert 30
+delete 20
+insert 40
+insert 50

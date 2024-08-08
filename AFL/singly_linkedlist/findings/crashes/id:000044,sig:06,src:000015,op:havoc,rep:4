@@ -1,8 +1,0 @@
-insert 0 1
-insert 1 2
-insert 2 3
-insedeleurtert 9 4
-delete 2
-delete 9 4
-delete 2
-delete 0

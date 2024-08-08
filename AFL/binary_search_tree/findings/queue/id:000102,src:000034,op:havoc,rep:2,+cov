@@ -1,0 +1,10 @@
+i 50
+insert 306insert 70
+insert 20
+insert 40
+insert 60
+insert 50
+find 30
+delete 30
+find 30
+find 50

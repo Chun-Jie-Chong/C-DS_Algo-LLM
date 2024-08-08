@@ -1,0 +1,7 @@
+insert name John Doe
+insert occupation S re r
+insert lane C
+search name
+search occupation
+see John Doe
+insert occupa nam

@@ -1,0 +1,11 @@
+insert 1
+insert 25
+search 30
+delete 10
+insert 50
+insert 25
+search 30
+delete 1
+search 10
+search 50
+delete 25

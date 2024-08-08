@@ -1,8 +1,7 @@
 add 5
 add 10
+add 0
 add 15
-cd 1ntas 10
-remove 1ns 1as 10
+cs 10
 remove 10
-cXns 10
-remove 1
+ns

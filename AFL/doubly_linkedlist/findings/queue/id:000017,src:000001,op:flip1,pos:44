@@ -1,7 +1,7 @@
 insert 5.0 0
 insert 7.5 1
 insert 3.5 0
-printŠdelete 2
+printŠdel2
 print
 search 7.5
 de 0

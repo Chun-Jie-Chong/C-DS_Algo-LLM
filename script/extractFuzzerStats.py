@@ -13,7 +13,7 @@ def extract_fuzzer_stats(directory):
                 key, value = line.strip().split(":", 1)
                 key = key.strip()
                 value = value.strip()
-                if key in ["unique_crashes", "unique_hangs", "afl_banner"]:
+                if key in ["unique_crashes", "unique_hangs", "cycles_done", "afl_banner"]:
                     fuzzer_stats[key] = value
     return fuzzer_stats
 
@@ -31,12 +31,13 @@ def write_stats_to_file(stats, output_file):
         for stat in stats:
             file.write(f"afl_banner: {stat['afl_banner']}\n")
             file.write(f"unique_crashes: {stat['unique_crashes']}\n")
+            file.write(f"cycles_done: {stat['cycles_done']}\n")
             file.write(f"unique_hangs: {stat['unique_hangs']}\n")
             file.write("---------------------------------------------\n")
 
 def main():
     root_directory = "../AFL"  # Replace with the path to your root directory
-    output_file = "extracted_fuzzer_stats.txt"
+    output_file = "fuzzer_stats_10min.txt"
     all_stats = process_directory_of_folders(root_directory)
     write_stats_to_file(all_stats, output_file)
 
