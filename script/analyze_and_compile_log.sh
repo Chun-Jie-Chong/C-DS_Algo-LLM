@@ -3,14 +3,14 @@
 # Define the compiler and flags
 CC=clang
 CFLAGS="-Wall -O0"
-ANALYZE_FLAGS="--analyze"
+ANALYZE_FLAGS="--analyze -Xanalyzer -analyzer-checker=alpha.core -Xanalyzer -analyzer-checker=alpha.clone -Xanalyzer -analyzer-checker=alpha.deadcode -Xanalyzer -analyzer-checker=alpha.unix -Xanalyzer -analyzer-checker=alpha.security"
 LOGFILE="compile_and_analyze_log.txt"
-
-# Create or clear the log file
-> "$LOGFILE"
 
 # Iterate over all .c files in the current directory
 cd ../src
+
+# Create or clear the log file
+> "$LOGFILE"
 
 for cfile in *.c; do
     if [[ -f "$cfile" ]]; then
