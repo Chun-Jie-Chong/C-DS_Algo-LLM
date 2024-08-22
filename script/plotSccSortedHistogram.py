@@ -1,9 +1,10 @@
 # First argument: metric to plot (complexity or complexity/code)
 # Second argument: input file
-# Third argument: legend to show (ChatGPT or Human)
+# Third argument: input file for ternary operator
+# Fourth argument: legend to show (ChatGPT or Human)
 # Examples:
-# python3 plotSortedComplexityCode.py complexity/code ../src/output.txt ChatGPT
-# python3 plotSortedComplexityCode.py complexity ../src/output2.txt Human
+# python3 plotSortedComplexityCode.py complexity/code ../src/output.txt ternary_chatgpt.txt ChatGPT-4o
+# python3 plotSortedComplexityCode.py complexity ../src/output2.txt ternary_human.txt Human
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,12 +24,33 @@ def parse_input(input_text):
                     parts = line.split()
                     code = int(parts[-2])
                     complexity = int(parts[-1])
-                    complexity_per_code = round (complexity / code, 2)
-                    file_data.append((file_name, complexity, complexity_per_code))
+                    complexity_per_code = complexity / code
+                    file_data.append((file_name, complexity, complexity_per_code, code))
+    return file_data
+
+def parse_ternary_operator(input_text):
+    entries = [x.strip() for x in input_text.splitlines()]
+    file_data = []
+
+    for entry in entries:
+        parts = entry.split(':')
+        file_name = parts[0]
+        complexity = int(parts[1])
+        file_data.append((file_name, complexity))
     return file_data
 
 # Function to plot the data
-def plot_data(file_data, metric, legend):
+def plot_data(file_data, file_data2, metric, legend):
+    # Match file name in file_data with file_data2 and add complexity from file_data2 to file_data
+    for i, data in enumerate(file_data):
+        file_name = data[0]
+        for data2 in file_data2:
+            if data2[0] == file_name:
+                newComplexity = data2[1] + data[1]
+                newComplexityPerCode = round (newComplexity / data[3], 3)
+                file_data[i] = (file_name, newComplexity, newComplexityPerCode, data[3])
+                break
+    print(file_data)
     # Sort the first file data by the selected metric
     if metric == 'complexity':
         file_data.sort(key=lambda x: x[1])
@@ -37,7 +59,7 @@ def plot_data(file_data, metric, legend):
         file_data.sort(key=lambda x: x[2])
         y_index = 2
         
-    if legend == 'ChatGPT':
+    if legend == 'ChatGPT-4o':
         color = 'royalblue'
     elif legend == 'Human':
         color = 'sandybrown'
@@ -64,7 +86,7 @@ def plot_data(file_data, metric, legend):
     # Add labels, title, and custom x-axis tick labels
     ax.set_xlabel('File Names')
     ax.set_ylabel(metric)
-    ax.set_title(f'{metric} by file ({legend})')
+    ax.set_title(f'DS & Algorithm {metric} by file ({legend})')
     ax.set_xticks(x)
     ax.set_xticklabels(file_names, rotation=45, ha='right')
     # ax.tick_params(axis='y', labelcolor=color)
@@ -91,19 +113,25 @@ def main():
     parser = argparse.ArgumentParser(description='Plot complexity or complexity/code from two input files.')
     parser.add_argument('metric', choices=['complexity', 'complexity/code'], help='Metric to plot: complexity or complexity/code')
     parser.add_argument('input', help='Input file')
-    parser.add_argument('legend', choices=['ChatGPT', 'Human'], help='Legend to show: ChatGPT or Human')
+    parser.add_argument('input2', help='Input file for ternary operator')
+    parser.add_argument('legend', choices=['ChatGPT-4o', 'Human'], help='Legend to show: ChatGPT-4o or Human')
 
     args = parser.parse_args()
 
     # Read the input from the first file
     with open(args.input, 'r') as file:
         input_text = file.read()
+        
+    with open(args.input2, 'r') as file2:
+        input_text2 = file2.read()
 
     # Extract data from the input texts
     file_data = parse_input(input_text)
+    
+    file_data2 = parse_ternary_operator(input_text2)
 
     # Plot the data based on the selected metric
-    plot_data(file_data, args.metric, args.legend)
+    plot_data(file_data, file_data2, args.metric, args.legend)
 
 if __name__ == "__main__":
     main()

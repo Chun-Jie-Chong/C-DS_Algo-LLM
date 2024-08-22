@@ -1,0 +1,15 @@
+doubly_linkedlist.c: 0
+bubble_sort.c: 0
+merge_sort.c: 0
+stack.c: 0
+singly_linkedlist.c: 0
+red_black_tree.c: 0
+queue.c: 0
+avl_tree.c: 4
+hash_set.c: 0
+binary_search_tree.c: 0
+hash_map.c: 0
+dfs.c: 0
+graph.c: 0
+hash_table.c: 2
+bfs.c: 0
