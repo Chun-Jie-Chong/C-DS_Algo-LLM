@@ -84,8 +84,14 @@ def plot_data(file_data1, file_data2, ternary_1, ternary_2, metric):
     # Align the second file data to the sorted file names of the first file
     y2_values = [file_data2_dict.get(file_name, 0) for file_name in file_names1]
     
-    print(y1_values)
-    print(y2_values)
+    # print(y1_values)
+    # print(y2_values)
+    # Compare y1_values with corresponding y2_values
+    comparison = [abs(y1 - y2) / min(y1, y2) if y1 != 0 and y2 != 0 else 0 for y1, y2 in zip(y1_values, y2_values)]
+    # Sort the zip(file_names1, comparison) based on comparison values
+    sorted_data = sorted(zip(file_names1, comparison), key=lambda x: x[1])
+    # Print the sorted data
+    print(sorted_data)
 
     # Plotting the histograms
     x = np.arange(len(file_names1))
