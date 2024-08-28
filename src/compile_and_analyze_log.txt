@@ -1,9 +1,14 @@
 Analyzing and compiling avl_tree.c to avl_tree.o
 Compilation and analysis of avl_tree.c succeeded
 Analyzing and compiling bfs.c to bfs.o
+In file included from bfs.c:4:
+./graph.c:24:25: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    g->edges = malloc(V * sizeof(int *));
+                      ~~^~~~~~~~~~~~~~~
+1 warning generated.
 Compilation and analysis of bfs.c succeeded
 Analyzing and compiling binary_search_tree.c to binary_search_tree.o
-binary_search_tree.c:124:5: warning: Potential leak of memory pointed to by 'root' [unix.Malloc]
+binary_search_tree.c:125:5: warning: Potential leak of memory pointed to by 'root' [unix.Malloc]
     struct Node* findNode = find(root, 40);
     ^~~~~~~~~~~~~~~~~~~~~
 1 warning generated.
@@ -11,10 +16,19 @@ Compilation and analysis of binary_search_tree.c succeeded
 Analyzing and compiling bubble_sort.c to bubble_sort.o
 Compilation and analysis of bubble_sort.c succeeded
 Analyzing and compiling dfs.c to dfs.o
+In file included from dfs.c:4:
+./graph.c:24:25: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    g->edges = malloc(V * sizeof(int *));
+                      ~~^~~~~~~~~~~~~~~
+1 warning generated.
 Compilation and analysis of dfs.c succeeded
 Analyzing and compiling doubly_linkedlist.c to doubly_linkedlist.o
 Compilation and analysis of doubly_linkedlist.c succeeded
 Analyzing and compiling graph.c to graph.o
+graph.c:24:25: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    g->edges = malloc(V * sizeof(int *));
+                      ~~^~~~~~~~~~~~~~~
+1 warning generated.
 Compilation and analysis of graph.c succeeded
 Analyzing and compiling hash_map.c to hash_map.o
 Compilation and analysis of hash_map.c succeeded
@@ -23,21 +37,28 @@ Compilation and analysis of hash_set.c succeeded
 Analyzing and compiling hash_table.c to hash_table.o
 Compilation and analysis of hash_table.c succeeded
 Analyzing and compiling merge_sort.c to merge_sort.o
+merge_sort.c:13:30: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    int* L = (int*)malloc(n1 * sizeof(int));
+                          ~~~^~~~~~~~~~~~~
+merge_sort.c:14:30: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    int* R = (int*)malloc(n2 * sizeof(int));
+                          ~~~^~~~~~~~~~~~~
+2 warnings generated.
 Compilation and analysis of merge_sort.c succeeded
 Analyzing and compiling queue.c to queue.o
-queue.c:89:5: warning: Potential leak of memory pointed to by 'q' [unix.Malloc]
+queue.c:90:5: warning: Potential leak of memory pointed to by 'q' [unix.Malloc]
     printf("Queue size: %d\n", size(q));  // Size should be 2
     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1 warning generated.
 Compilation and analysis of queue.c succeeded
 Analyzing and compiling red_black_tree.c to red_black_tree.o
-red_black_tree.c:159:18: warning: Access to field 'parent' results in a dereference of a null pointer (loaded from variable 'x') [core.NullDereference]
+red_black_tree.c:160:18: warning: Access to field 'parent' results in a dereference of a null pointer (loaded from variable 'x') [core.NullDereference]
         if (x == x->parent->left) {
                  ^~~~~~~~~
-red_black_tree.c:167:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
+red_black_tree.c:168:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
             if ((w->left == NULL || w->left->color == BLACK) && 
                  ^~~~~~~
-red_black_tree.c:193:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
+red_black_tree.c:194:18: warning: Access to field 'left' results in a dereference of a null pointer (loaded from variable 'w') [core.NullDereference]
             if ((w->left == NULL || w->left->color == BLACK) && 
                  ^~~~~~~
 3 warnings generated.
@@ -45,5 +66,12 @@ Compilation and analysis of red_black_tree.c succeeded
 Analyzing and compiling singly_linkedlist.c to singly_linkedlist.o
 Compilation and analysis of singly_linkedlist.c succeeded
 Analyzing and compiling stack.c to stack.o
+stack.c:22:49: warning: the computation of the size of the memory allocation may overflow [alpha.security.MallocOverflow]
+    stack->data = (int*) malloc(stack->capacity * sizeof(int));
+                                ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+stack.c:84:9: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+        printf("Stack is empty\n");
+        ^~~~~~
+2 warnings generated.
 Compilation and analysis of stack.c succeeded
 Compilation and static analysis completed.
